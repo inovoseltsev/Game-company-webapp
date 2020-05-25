@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="resources/css/admin.css" type="text/css"
+          rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <p class="nav-caption" th:text="${userFullName}"></p>
+        <ul>
+            <li class="logout-li">
+                <button class="btn">
+                    <a th:href="@{logout}">Logout</a>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="table-caption-wrapper">
+    <h4 class="table-caption">Logged in users</h4>
+</div>
+<div class="table-wrapper">
+    <table th:if="${users} != null" class="users-table table table-bordered">
+        <thead class="">
+        <tr class="">
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Login</th>
+            <th scope="col">Email</th>
+            <th scope="col">State</th>
+            <th scope="col">Level</th>
+            <th scope="col">Settings</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <th th:text="${user.getFirstName()}"></th>
+            <th th:text="${user.getLastName()}"></th>
+            <th th:text="${user.getLogin()}"></th>
+            <th th:text="${user.getEmail()}"></th>
+            <th th:text="${user.getState()}"></th>
+            <th th:text="${user.getLevel()}"></th>
+            <th><a><button class="set-button">Edit</button></a></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="resources/js/script.js"></script>
+</body>
+</html>

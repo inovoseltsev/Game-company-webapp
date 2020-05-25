@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My page</title>
+    <link href="/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="/resources/css/user.css" type="text/css"
+          rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+    <p class="name-caption" th:text="${userFullName}"></p>
+    <ul>
+        <li>
+            <button class="btn">
+                <a href="">Achives</a>
+            </button>
+        </li>
+        <li class="logout-li">
+            <button class="btn">
+                <a href="logout">Logout</a>
+            </button>
+        </li>
+    </ul>
+</nav>
+<h1 class="display-1">Страница Пользователя</h1>
+</body>
+</html>
