@@ -193,6 +193,10 @@ header {
     height: 100%;
 }
 
+.content .game-cover-wrapper .short-cover {
+    display: none;
+}
+
 .content .game-cover-wrapper:hover {
     -webkit-transform: scale(1.02);
     -ms-transform: scale(1.02);
@@ -489,7 +493,7 @@ header {
     }
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 415px) {
     .head-wrapper {
         width: 100%;
     }
@@ -499,33 +503,39 @@ header {
     }
 
     .head-wrapper .logo-wrapper img {
-        width: 28px;
-        height: 37px;
+        width: 46px;
+        height: 57px;
     }
 
     .head-wrapper .caption-wrapper p {
-        font-size: 15px;
+        font-size: 17px;
+        display: none;
+    }
+
+    .head-wrapper .communication-wrapper {
+
     }
 
     .head-wrapper .communication-wrapper .youtube-img {
-        width: 18px;
-        height: 16px;
+        width: 23px;
+        height: 20px;
+        margin-top: 6px;
     }
 
     .head-wrapper .communication-wrapper .instagram-img {
-        width: 16px;
-        height: 16px;
-        margin-right: 10px;
-        margin-left: 10px;
+        width: 23px;
+        height: 23px;
+        margin: 5px 20px 5px 20px;
     }
 
     .head-wrapper .communication-wrapper .telegram-img {
-        width: 16px;
-        height: 16px;
+        width: 23px;
+        height: 23px;
+        margin-top: 4px;
     }
 
     .head-wrapper .navbar-wrapper {
-        width: 100px;
+        width: 40%;
     }
 
     .head-wrapper .navbar-wrapper .navbar .btn {
@@ -533,11 +543,15 @@ header {
     }
 
     .head-wrapper .navbar-wrapper .navbar ul li a {
-        font-size: 13px;
+        font-size: 20px;
     }
 
     .developer-wrapper {
-        width: 100%;
+        width: 90%;
+    }
+
+    .developer-wrapper h2 {
+        font-size: 20px;
     }
 
     .content {
@@ -545,11 +559,16 @@ header {
     }
 
     .content .game-cover-wrapper {
-        width: 300px;
+        width: 80%;
         height: 447px;
     }
 
     .content .game-cover-wrapper img {
+        display: none;
+    }
+
+    .content .game-cover-wrapper .short-cover {
+        display: block;
         width: 100%;
         height: 100%;
     }
@@ -567,17 +586,17 @@ header {
     }
 
     .content .photo-row .photo-line {
-        width: 300px;
+        width: 80%;
         margin: 0 auto;
     }
 
     .content .photo-row .photo-line img {
         width: 100%;
-        height: 447px;
+        height: 480px;
     }
 
     .content .technologies-wrapper {
-        width: 350px;
+        width: 100%;
     }
 
     .content .technologies-wrapper h2 {
@@ -586,7 +605,7 @@ header {
     }
 
     .content .technologies-wrapper div {
-        width: 300px;
+        width: 80%;
         margin: 0 auto;
     }
 
@@ -595,7 +614,7 @@ header {
     }
 
     .content .technologies-wrapper img {
-        width: 100%
+        width: 100%;
     }
 
     .content .technologies-wrapper .unity-photo-wrapper img {
@@ -611,7 +630,7 @@ header {
     }
 
     .content .for-developers {
-        width: 350px;
+        width: 90%;
         margin-top: 75px;
     }
 
@@ -628,5 +647,23 @@ header {
         padding-right: 25px;
         padding-left: 25px;
         margin-top: 75px;
+        margin-bottom: 30px;
+    }
+
+    .footer-content-wrapper .end-logo-wrapper {
+        margin-top: 35px;
+    }
+
+    .footer-content-wrapper .end-logo-wrapper img {
+        width: 33px;
+        height: 44px;
+    }
+
+    .footer-content-wrapper .end-logo-wrapper h2 {
+        font-size: 30px;
+    }
+
+    .footer-content-wrapper .rights-wrapper {
+        margin-top: 60px;
     }
 }
