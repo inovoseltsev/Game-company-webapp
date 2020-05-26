@@ -39,15 +39,32 @@ header {
     margin-right: 20px;
 }
 
+.caption-wrapper .logo-wrapper img {
+    width: 50px;
+    height: 60px;
+}
+
 .communication-wrapper {
     margin-top: auto;
     margin-bottom: auto;
     display: flex;
 }
 
-.communication-wrapper .central-img {
+.communication-wrapper .youtube-img {
+    width: 19px;
+    height: 17px;
+}
+
+.communication-wrapper .instagram-img {
+    width: 20px;
+    height: 20px;
     margin-right: 20px;
     margin-left: 20px;
+}
+
+.communication-wrapper .telegram-img {
+    width: 21px;
+    height: 21px;
 }
 
 .communication-wrapper img {
@@ -171,6 +188,11 @@ header {
     transition: 0.3s;
 }
 
+.content .game-cover-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+
 .content .game-cover-wrapper:hover {
     -webkit-transform: scale(1.02);
     -ms-transform: scale(1.02);
@@ -182,19 +204,24 @@ header {
 }
 
 
-.download {
+.download-btn-wrapper {
     width: 730px;
     margin: 0 auto;
 }
 
-.download a img {
+.download-img-wrapper {
     width: 210px;
     height: 78px;
     margin-left: auto;
+}
+
+.content .download-btn-wrapper a img {
+    width: 210px;
+    height: 78px;
     transition: 0.3s;
 }
 
-.download a img:hover {
+.download-btn-wrapper a img:hover {
     -webkit-transform: scale(1.02);
     -ms-transform: scale(1.02);
     transform: scale(1.02);
@@ -209,10 +236,12 @@ header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    width: 100%;
 }
 
-
 .photo-row .photo-line img {
+    width: 340px;
+    height: 500px;
     border-radius: 3px;
     transition: 0.3s;
 }
@@ -240,11 +269,29 @@ header {
 
 .technologies-wrapper div {
     transition: all 0.3s ease;
+    width: 100%;
+}
+
+.technologies-wrapper div img {
+    width: 100%;
+}
+
+.technologies-wrapper .unity-photo-wrapper img {
+    height: 400px;
+}
+
+.technologies-wrapper .analytics-wrapper img {
+    width: 100%;
+    height: 584px;
 }
 
 .technologies-wrapper .analytics-wrapper {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.technologies-wrapper .google-play-wrapper img {
+    height: 466px;
 }
 
 .technologies-wrapper div:hover {
@@ -367,7 +414,7 @@ header {
     }
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
 
     .head-wrapper {
         padding-left: 20px;
@@ -417,7 +464,7 @@ header {
         height: 100%;
     }
 
-    .download {
+    .download-btn-wrapper {
         width: 378px;
     }
 
@@ -440,7 +487,146 @@ header {
         padding-right: 50px;
         width: 100%;
     }
+}
 
-    @media (max-width: 570px) {
+@media screen and (max-width: 376px) {
+    .head-wrapper {
+        width: 100%;
+    }
+
+    .head-wrapper .logo-wrapper {
+        margin-right: 10px;
+    }
+
+    .head-wrapper .logo-wrapper img {
+        width: 28px;
+        height: 37px;
+    }
+
+    .head-wrapper .caption-wrapper p {
+        font-size: 15px;
+    }
+
+    .head-wrapper .communication-wrapper .youtube-img {
+        width: 18px;
+        height: 16px;
+    }
+
+    .head-wrapper .communication-wrapper .instagram-img {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .head-wrapper .communication-wrapper .telegram-img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .head-wrapper .navbar-wrapper {
+        width: 100px;
+    }
+
+    .head-wrapper .navbar-wrapper .navbar .btn {
+        padding: 0;
+    }
+
+    .head-wrapper .navbar-wrapper .navbar ul li a {
+        font-size: 13px;
+    }
+
+    .developer-wrapper {
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .content .game-cover-wrapper {
+        width: 300px;
+        height: 447px;
+    }
+
+    .content .game-cover-wrapper img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content .download-btn-wrapper {
+        width: 100%;
+    }
+
+    .content .download-btn-wrapper .download-img-wrapper {
+        margin: 0 auto;
+    }
+
+    .content .photo-row {
+        width: 100%;
+    }
+
+    .content .photo-row .photo-line {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .content .photo-row .photo-line img {
+        width: 100%;
+        height: 447px;
+    }
+
+    .content .technologies-wrapper {
+        width: 350px;
+    }
+
+    .content .technologies-wrapper h2 {
+        margin-top: 75px;
+        font-size: 20px;
+    }
+
+    .content .technologies-wrapper div {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .content .technologies-wrapper .analytics-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .content .technologies-wrapper img {
+        width: 100%
+    }
+
+    .content .technologies-wrapper .unity-photo-wrapper img {
+        height: 171px;
+    }
+
+    .content .technologies-wrapper .analytics-wrapper img {
+        height: 250px;
+    }
+
+    .content .technologies-wrapper .google-play-wrapper img {
+        height: 200px;
+    }
+
+    .content .for-developers {
+        width: 350px;
+        margin-top: 75px;
+    }
+
+    .content .for-developers h6 {
+        font-size: 17px;
+    }
+
+    .content .for-developers p {
+        font-size: 14px;
+    }
+
+    .footer-content-wrapper {
+        width: 100%;
+        padding-right: 25px;
+        padding-left: 25px;
+        margin-top: 75px;
     }
 }
