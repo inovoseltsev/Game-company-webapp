@@ -37,7 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
-                .alwaysRemember(true)
                 .rememberMeCookieName("SPSESSIONID");
         http
                 .logout()
