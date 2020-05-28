@@ -32,7 +32,7 @@ public class UserValidator {
                 email = null;
             }
             return new AppUser(firstName, lastName, login, password, email,
-                    Role.USER, State.ACTIVE, 0, 0);
+                    Role.USER, State.ACTIVE);
         } else {
             return null;
         }

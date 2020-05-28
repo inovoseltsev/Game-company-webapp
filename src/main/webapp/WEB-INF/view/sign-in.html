@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="resources/css/login.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div th:if="${error}" class="alert alert-danger">Логин или пароль
+    неверны
+</div>
+<div class="login-form-wrapper form-group">
+    <h3 class="login-caption display-4">Please login</h3>
+    <form action="userLogin" method="post">
+        <div class="login-field-wrapper">
+            <input class="password-field form-control form-control-lg"
+                   type="text"
+                   placeholder="Login"
+                   name="login"
+                   required>
+        </div>
+        <div>
+            <input class="form-control form-control-lg" type="password"
+                   placeholder="Password"
+                   name="password"
+                   required>
+        </div>
+        <div class="remember-me-wrapper">
+            <label>Remember me</label>
+            <input type="checkbox" name="rememberMe">
+        </div>
+        <div class="forgot-pass-wrapper">
+            <a class="forgot-link" href="">Forgot password?</a>
+        </div>
+        <div>
+            <input class="btn btn-primary" type="submit" value="Log in">
+        </div>
+        <div class="google-auth-wrapper">
+            <a href="oauth2/authorization/google">
+                <img src="resources/img/google-login.png" alt="">
+            </a>
+        </div>
+        <div class="create-wrapper">
+            <a href="sign-up">Create an account?</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

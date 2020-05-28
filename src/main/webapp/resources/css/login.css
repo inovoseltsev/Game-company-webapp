@@ -41,10 +41,27 @@
 }
 
 .btn-primary {
-    width: 100%;
+    width: 99%;
     height: 50px;
     margin-top: 15px;
     font-size: 18px;
+}
+
+.google-auth-wrapper {
+    width: 65%;
+    margin-left: auto;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+.google-auth-wrapper:hover {
+    opacity: 1;
+}
+
+.google-auth-wrapper img {
+    width: 100%;
+    height: 60px;
 }
 
 .create-wrapper {

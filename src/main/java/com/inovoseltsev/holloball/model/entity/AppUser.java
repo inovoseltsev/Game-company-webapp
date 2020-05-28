@@ -11,12 +11,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "app_user")
@@ -49,18 +45,11 @@ public class AppUser implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
-    @Column(name = "level")
-    private Integer level;
-
-    @Column(name = "coins")
-    private Integer coins;
-
     public AppUser() {
     }
 
     public AppUser(String firstName, String lastName, String login,
-                   String password, String email, Role role, State state,
-                   Integer level, Integer coins) {
+                   String password, String email, Role role, State state) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
@@ -68,8 +57,6 @@ public class AppUser implements Serializable {
         this.email = email;
         this.role = role;
         this.state = state;
-        this.level = level;
-        this.coins = coins;
     }
 
     public Long getUserId() {
@@ -143,34 +130,4 @@ public class AppUser implements Serializable {
         this.state = state;
     }
 
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public Integer getCoins() {
-        return coins;
-    }
-
-    public void setCoins(Integer coins) {
-        this.coins = coins;
-    }
-
-    @ManyToMany
-    @JoinTable(name = "user_skin", joinColumns =
-    @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name =
-            "skin_id"))
-    private List<Skin> skins;
-
-    public List<Skin> getSkins() {
-        return skins;
-    }
-
-    public void setSkins(List<Skin> skins) {
-        this.skins = skins;
-    }
 }

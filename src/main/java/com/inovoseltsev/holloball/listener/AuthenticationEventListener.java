@@ -16,10 +16,10 @@ public class AuthenticationEventListener implements ApplicationListener<Abstract
         }
         Authentication authentication = event.getAuthentication();
         String authMessage = "Login attempt with user name: "
-                + authentication.getName() + " "
-                + authentication.getAuthorities() + " "
-                + authentication.getCredentials() + " "
-                + authentication.getPrincipal() + " "
+                + authentication.getName() + "  "
+                + authentication.getAuthorities() + "  "
+                + authentication.getCredentials()+ "  "
+                + authentication.getPrincipal() + "  "
                 + authentication.getDetails();
         System.out.println(authMessage);
     }

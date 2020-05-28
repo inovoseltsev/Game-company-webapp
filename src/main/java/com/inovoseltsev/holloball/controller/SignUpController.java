@@ -39,6 +39,6 @@ public class SignUpController {
             return "sign-up";
         }
         userService.create(user);
-        return "redirect:/login";
+        return "sign-in";
     }
 }
