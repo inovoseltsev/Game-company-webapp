@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Map;
 
 @Entity
 @Table(name = "O_AUTH2_GOOGLE_USER")
@@ -19,6 +20,13 @@ public class OAuth2GoogleUser {
     private String locale;
 
     public OAuth2GoogleUser() {
+    }
+
+    public OAuth2GoogleUser(Map<String, Object> userAttributes) {
+        this.id = (String) userAttributes.get("sub");
+        this.name = (String) userAttributes.get("name");
+        this.email = (String) userAttributes.get("email");
+        this.locale = (String) userAttributes.get("locale");
     }
 
     public String getId() {

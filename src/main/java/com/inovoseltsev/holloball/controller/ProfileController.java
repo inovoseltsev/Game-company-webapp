@@ -2,8 +2,10 @@ package com.inovoseltsev.holloball.controller;
 
 import com.inovoseltsev.holloball.model.details.UserDetailsImpl;
 import com.inovoseltsev.holloball.model.entity.AppUser;
+import com.inovoseltsev.holloball.model.entity.OAuth2GoogleUser;
 import com.inovoseltsev.holloball.model.role.Role;
 import com.inovoseltsev.holloball.model.service.AppUserService;
+import com.inovoseltsev.holloball.model.service.OAuth2GoogleUserService;
 import com.inovoseltsev.holloball.oauth2.OAuth2UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,7 +15,6 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -33,6 +34,9 @@ public class ProfileController {
     @Autowired
     private OAuth2UserService<OAuth2UserRequest, OAuth2UserImpl> oAuth2UserService;
 
+    @Autowired
+    private OAuth2GoogleUserService auth2GoogleUserService;
+
     @GetMapping("/home")
     public String displayProfilePage(Authentication authentication,
                                      ModelMap model,
@@ -42,8 +46,7 @@ public class ProfileController {
         } else if (authentication.getPrincipal().toString().contains(" sub=")) {
             return "redirect:/oAuth2Success";
         }
-        System.out.println(authentication.getPrincipal());
-            AppUser user = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
+        AppUser user = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         String userFullName = user.getFirstName() + " " + user.getLastName();
         model.addAttribute("userFullName", userFullName);
         if (user.getRole().equals(Role.ADMIN)) {
@@ -56,21 +59,29 @@ public class ProfileController {
             model.addAttribute("users", users);
             return "admin";
         } else {
-            return "user";
+            session.setAttribute("userFullName", userFullName);
+            return "redirect:/events";
         }
     }
 
     @GetMapping("/oAuth2Success")
     public String getLoginData(OAuth2AuthenticationToken authenticationToken,
-                               HttpSession session, Model model) {
-        session.setAttribute("oAuth2", true);
+                               HttpSession session) {
         OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
                 authenticationToken.getAuthorizedClientRegistrationId(),
                 authenticationToken.getName());
         OAuth2UserImpl oAuth2User =
                 oAuth2UserService.loadUser(new OAuth2UserRequest(client
                         .getClientRegistration(), client.getAccessToken()));
-        model.addAttribute("userFullNAme", oAuth2User.getName());
-        return "user";
+        if (auth2GoogleUserService.findByEmail(oAuth2User.getName()) == null) {
+            OAuth2GoogleUser user =
+                    new OAuth2GoogleUser(oAuth2User.getAttributes());
+            auth2GoogleUserService.create(user);
+            session.setAttribute("userFullName", user.getName());
+        } else {
+            session.setAttribute("userFullName", oAuth2User.getAttribute(
+                    "name"));
+        }
+        return "redirect:/events";
     }
 }

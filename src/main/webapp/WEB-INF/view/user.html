@@ -5,25 +5,151 @@
     <title>My page</title>
     <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
     <link href="resources/css/user.css" type="text/css"
+          rel="stylesheet">
+    <link href="resources/css/events.css" type="text/css"
           rel="stylesheet">
 </head>
 <body>
-<nav class="navbar">
-    <p class="name-caption" th:text="${userFullName}"></p>
-    <ul>
-        <li>
-            <button class="btn">
-                <a href="">Achives</a>
-            </button>
-        </li>
-        <li class="logout-li">
-            <button class="btn">
-                <a href="logout">Logout</a>
-            </button>
-        </li>
-    </ul>
-</nav>
-<h1 class="display-1">Страница Пользователя</h1>
+<header>
+    <div class="header-wrapper">
+        <div class="logo-wrapper">
+            <img src="resources/img/logo.png" alt="">
+            <p th:text="${userFullName}"></p>
+        </div>
+        <div class="nav-wrapper">
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <button class="btn btn-link">
+                            <a href="events">Events</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-link">
+                            <a href="games">Games</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-link">
+                            <a href="profile">Profile</a>
+                        </button>
+                    </li>
+                    <li class="logout-li">
+                        <button class="btn btn-link">
+                            <a href="logout">Logout</a>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<div th:if="${games}" class="games-wrapper">
+    <div class="headline-wrapper">
+        <h1>Games of LightDev Ltd.</h1>
+        <p>Games we created for you.</p>
+        <p>Play everywhere every time.</p>
+    </div>
+    <div class="games-row">
+        <div class="game-cover-wrapper">
+            <h2>Hole ball</h2>
+            <div class="game-photo-row-wrapper">
+                <img src="resources/img/cover.png" alt="">
+            </div>
+            <div class="download-photo-wrapper">
+                <a
+                        href="https://play.google.com/store/apps/details?id=com.lightdev.nureball"
+                        target="_blank">
+                    <img src="resources/img/download-icon.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="technologies-stack-wrapper">
+        <div class="technologies-photo-row-wrapper">
+            <div class="main-technology-wrapper">
+                <a href="https://unity.com/" target="_blank">
+                    <img class="unity-photo" src="resources/img/unity.jpg"
+                         alt="">
+                </a>
+            </div>
+            <div class="other-technologies-wrapper">
+                <div>
+                    <a href="https://unity3d.com/unity/features/analytics"
+                       target="_blank">
+                        <img class="analytics-photo"
+                             src="resources/img/games-unity-analytics.jpg"
+                             alt="">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://play.google.com/store" target="_blank">
+                        <img class="google-play-photo"
+                             src="resources/img/google-play-games.jpg"
+                             alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:if="${events}" class="events-wrapper">
+    <div class="event-headline-wrapper">
+        <h1>Hello, <span th:text="${userFullName}"></span></h1>
+        <p>Hello, we are a new game dev company which started being recently
+            and we want to create the best hyper casual games in play
+            market. But for big fame we must have big fan group, so we
+            decided to give regularly different develop events that
+            invoke your interest.</p>
+        <div class="headline-btn-wrapper">
+            <a href="https://play.google.com/store/apps/details?id=com.lightdev.nureball"
+               target="_blank">
+                <button class="btn btn-primary">See game</button>
+            </a>
+        </div>
+    </div>
+    <div class="events-row jumbotron">
+        <div class="col-md-4">
+            <h2>Game Dev</h2>
+            <p>Here you can see the parts of game developing process. How we
+                configure frameworks, what patterns and approaches we use in app
+                design, also of course you can find how to set modern different
+                API's such as google oAuth2 or google play games.
+            </p>
+            <a
+                    href="https://www.youtube.com/channel/UCtt5wGnVBBrmQdKgvVJuGTg"
+                    target="_blank">
+                <button class="btn btn-primary">See</button>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <h2>Game assets</h2>
+            <p>Here you can see different assets are created by our
+                developers. You can see it or buy for future using.</p>
+            <a href="https://assetstore.unity.com/publishers/31610"
+               target="_blank">
+                <button class="btn btn-primary">See</button>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <h2>Gameplay</h2>
+            <p>Here you may watch our games gameplay to see what is a hyper
+                casual game and how it plays. Also you get to know how to
+                build it correctly with all visual design deatils.</p>
+            <a
+                    href="https://www.youtube.com/channel/UCtt5wGnVBBrmQdKgvVJuGTg"
+                    target="_blank">
+                <button class="btn btn-primary">See</button>
+            </a>
+        </div>
+    </div>
+    <hr>
+</div>
+<footer>
+    <p>© 2019-2020 LightDev Ltd.</p>
+</footer>
 </body>
 </html>

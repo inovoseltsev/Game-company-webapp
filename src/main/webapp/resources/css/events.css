@@ -1,0 +1,33 @@
+.events-wrapper {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.events-wrapper .event-headline-wrapper {
+    margin-top: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.events-wrapper .event-headline-wrapper h1 {
+    font-size: 55px;
+    font-weight: 300;
+    color: #777777;
+}
+
+.events-row {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.events-row h2 {
+    color: #777777;
+
+}
+
+.events-row .btn {
+    width: 100px;
+}
+

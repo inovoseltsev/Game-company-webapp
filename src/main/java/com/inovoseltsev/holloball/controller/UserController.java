@@ -7,18 +7,20 @@ import com.inovoseltsev.holloball.model.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
     @Autowired
     private AppUserService userService;
 
-    @GetMapping("/user/home")
+    @GetMapping("/user")
     public String setUserPage(@SessionAttribute String userFullName,
                               ModelMap model) {
         model.addAttribute("userFullName", userFullName);
@@ -36,4 +38,25 @@ public class UserController {
         return "redirect:/home";
     }
 
+    @GetMapping("/games")
+    public String setGamesPage(HttpSession session,
+                               Model model) {
+        if (session.getAttribute("userFullName") == null) {
+            return "redirect:/home";
+        }
+        model.addAttribute("games", true);
+        model.addAttribute("userFullName", session.getAttribute("userFullName"));
+        return "user";
+    }
+
+    @GetMapping("/events")
+    public String setEventsPage(HttpSession session,
+                                Model model) {
+        if (session.getAttribute("userFullName") == null) {
+            return "redirect:/home";
+        }
+        model.addAttribute("events", true);
+        model.addAttribute("userFullName", session.getAttribute("userFullName"));
+        return "user";
+    }
 }
