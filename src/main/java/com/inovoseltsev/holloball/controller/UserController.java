@@ -52,9 +52,9 @@ public class UserController {
     @GetMapping("/events")
     public String setEventsPage(HttpSession session,
                                 Model model) {
-        if (session.getAttribute("userFullName") == null) {
-            return "redirect:/home";
-        }
+//        if (session.getAttribute("userFullName") == null) {
+//            return "redirect:/home";
+//        }
         model.addAttribute("events", true);
         model.addAttribute("userFullName", session.getAttribute("userFullName"));
         return "user";
