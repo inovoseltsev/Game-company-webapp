@@ -82,16 +82,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable();
         http
-                .requiresChannel()
-                .antMatchers("/userLogin", "/oAuth2Success", "/oauth2" +
-                        "/authorization/google");
+                .requiresChannel().anyRequest();
+//                .requiresChannel()
+//                .antMatchers("/userLogin", "/oAuth2Success", "/oauth2" +
+//                        "/authorization/google").requiresInsecure();
     //                http
     //                .requiresChannel()
     //                .antMatchers("/sign-in", "sign-up").requiresInsecure();
-        http
-                .sessionManagement()
-                .sessionFixation()
-                .none();
+//        http
+//                .sessionManagement()
+//                .sessionFixation()
+//                .none();
     }
 
     @Override
