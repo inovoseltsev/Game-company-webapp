@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMeCookieName("SPSESSIONID");
         http
                 .requiresChannel()
-                .anyRequest().requiresSecure();
+                .antMatchers("/oauth2/authorization/google").requiresSecure();
 
         http
                 .logout()
