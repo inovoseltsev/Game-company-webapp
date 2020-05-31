@@ -130,7 +130,9 @@ public class UserController {
                                String newPassword) {
         user.setFirstName(firstName);
         user.setLastName(lastName);
-        user.setEmail(email);
+        if (email.length() != 0) {
+            user.setEmail(email);
+        }
         user.setPassword(passwordEncoder.encode(newPassword));
         appUserService.update(user);
     }
