@@ -65,10 +65,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/oAuth2Success");
         http
                 .authorizeRequests()
-                .antMatchers("/user/**").authenticated()
+                .antMatchers("/user/**").hasAuthority("USER")
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/sign-in", "/sign-up", "/", "/resources/**",
-                        "/webjars/**").permitAll()
+                .antMatchers("/home").permitAll()
+//                .antMatchers("/sign-in", "/sign-up", "/", "/resources/**",
+//                        "/webjars/**").permitAll()
                 .and()
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
