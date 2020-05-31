@@ -6,16 +6,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
 
     @GetMapping("/sign-in")
     public String displayLoginPage(HttpServletRequest req, ModelMap model,
-                                   Authentication authentication,
-                                   HttpSession session) {
-        session.setAttribute("oAuth2", false);
+                                   Authentication authentication) {
         if (authentication != null) {
             return "redirect:/home";
         }

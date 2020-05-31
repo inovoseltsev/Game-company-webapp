@@ -14,6 +14,10 @@ public class OAuth2GoogleUser {
     private String id;
     @Column(name = "NAME")
     private String name;
+    @Column(name = "FIRST_NAME")
+    private String firstName;
+    @Column(name = "LAST_NAME")
+    private String lastName;
     @Column(name = "EMAIL", unique = true)
     private String email;
     @Column(name = "LOCALE")
@@ -27,6 +31,8 @@ public class OAuth2GoogleUser {
         this.name = (String) userAttributes.get("name");
         this.email = (String) userAttributes.get("email");
         this.locale = (String) userAttributes.get("locale");
+        this.firstName = "";
+        this.lastName = "";
     }
 
     public String getId() {
@@ -43,6 +49,22 @@ public class OAuth2GoogleUser {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firsName) {
+        this.firstName = firsName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {

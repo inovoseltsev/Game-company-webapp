@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .usernameParameter("login")
                 .loginPage("/sign-in")
-                .defaultSuccessUrl("/home")
                 .loginProcessingUrl("/userLogin")
+                .defaultSuccessUrl("/home")
                 .and()
                 .oauth2Login()
                 .loginPage("/sign-in")
@@ -67,10 +67,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/user/**").authenticated()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/games").authenticated()
-                .antMatchers("/events").authenticated()
-                .antMatchers("/profile").authenticated()
-                .antMatchers("/").permitAll()
+                .antMatchers("/sign-in", "/sign-up", "/", "/resources/**",
+                        "/webjars/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
@@ -82,6 +81,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf()
                 .disable();
+        http
+                .requiresChannel()
+                .antMatchers("/userLogin", "/oAuth2Success");
+        http
+                .sessionManagement()
+                .sessionFixation()
+                .none();
     }
 
     @Override

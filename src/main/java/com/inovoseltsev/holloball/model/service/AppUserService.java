@@ -12,6 +12,8 @@ public interface AppUserService {
 
     void delete(AppUser user);
 
+    AppUser findById(Long id);
+
     AppUser findByLogin(String login);
 
     AppUser findByEmail(String email);

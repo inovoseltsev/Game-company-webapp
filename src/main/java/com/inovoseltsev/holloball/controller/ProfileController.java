@@ -48,7 +48,8 @@ public class ProfileController {
         }
         AppUser user = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         String userFullName = user.getFirstName() + " " + user.getLastName();
-        model.addAttribute("userFullName", userFullName);
+        session.setAttribute("isOAuth2", false);
+        session.setAttribute("userId", user.getUserId());
         if (user.getRole().equals(Role.ADMIN)) {
             List<AppUser> users = new ArrayList<>();
             for (AppUser appUser : userService.findAll()) {
@@ -78,10 +79,13 @@ public class ProfileController {
                     new OAuth2GoogleUser(oAuth2User.getAttributes());
             auth2GoogleUserService.create(user);
             session.setAttribute("userFullName", user.getName());
+            session.setAttribute("userId", user.getId());
         } else {
             session.setAttribute("userFullName", oAuth2User.getAttribute(
                     "name"));
+            session.setAttribute("userId", oAuth2User.getAttribute("sub"));
         }
+        session.setAttribute("isOAuth2", true);
         return "redirect:/events";
     }
 }

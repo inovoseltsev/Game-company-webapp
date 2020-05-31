@@ -40,6 +40,11 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
+    public AppUser findById(Long id) {
+        return userRepository.findById(id).get();
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public AppUser findByLogin(String login) {
         return userRepository.findAppUserByLogin(login);

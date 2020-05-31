@@ -11,6 +11,8 @@ public interface OAuth2GoogleUserService {
 
     void delete(OAuth2GoogleUser user);
 
+    OAuth2GoogleUser findById(String id);
+
     OAuth2GoogleUser findByEmail(String email);
 
     List<OAuth2GoogleUser> findAll();
