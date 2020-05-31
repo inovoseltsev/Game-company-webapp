@@ -83,8 +83,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable();
         http
                 .requiresChannel()
-                .anyRequest().requiresSecure();
-//                .antMatchers("/userLogin", "/oAuth2Success", "/oauth2/authorization/google");
+                .antMatchers("/userLogin", "/oAuth2Success", "/oauth2" +
+                        "/authorization/google").requiresSecure();
         http
                 .sessionManagement()
                 .sessionFixation()
