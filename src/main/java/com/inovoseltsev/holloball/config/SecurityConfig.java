@@ -69,7 +69,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/sign-in", "/sign-up", "/", "/resources/**",
                         "/webjars/**").permitAll()
-                .anyRequest().authenticated()
                 .and()
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
@@ -81,18 +80,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf()
                 .disable();
-        http
-                .requiresChannel().anyRequest();
-//                .requiresChannel()
-//                .antMatchers("/userLogin", "/oAuth2Success", "/oauth2" +
-//                        "/authorization/google").requiresInsecure();
-    //                http
-    //                .requiresChannel()
-    //                .antMatchers("/sign-in", "sign-up").requiresInsecure();
-//        http
-//                .sessionManagement()
-//                .sessionFixation()
-//                .none();
     }
 
     @Override
