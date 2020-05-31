@@ -74,8 +74,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
                 .rememberMeCookieName("SPSESSIONID");
-        http.requiresChannel()
-                .anyRequest().requiresInsecure();
+        http
+                .requiresChannel()
+                .anyRequest().requiresSecure();
 
         http
                 .logout()
