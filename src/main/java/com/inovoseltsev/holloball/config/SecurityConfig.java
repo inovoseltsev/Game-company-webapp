@@ -97,8 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public CookieSerializer cookieSerializer() {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();
         serializer.setCookieName("SPSESSIONID");
-//        serializer.setDomainName("lightdev-ltd.herokuapp.com");
-        serializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
+        serializer.setDomainName("lightdev-ltd.herokuapp.com");
         serializer.setCookiePath("/");
         return serializer;
     }
