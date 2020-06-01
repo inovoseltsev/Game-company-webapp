@@ -34,6 +34,11 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @GetMapping("/goHome")
+    public String setHomePage() {
+        return "index";
+    }
+
     @GetMapping("/user")
     public String setUserPage() {
         return "redirect:/events";

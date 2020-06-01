@@ -5,37 +5,99 @@
     <title>Sign up</title>
     <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link href="resources/css/main.css" type="text/css"
+          rel="stylesheet">
     <link href="resources/css/sign-up.css" type="text/css"
           rel="stylesheet">
 </head>
 <body>
+<header>
+    <div class="head-wrapper" id="high-point">
+        <div class="caption-wrapper">
+            <div class="logo-wrapper">
+                <a href="goHome" target="_self">
+                    <img src="resources/img/logo.png" alt="">
+                </a>
+            </div>
+            <p>LightDev</p>
+        </div>
+        <div class="communication-wrapper">
+            <a href="https://www.youtube.com/channel/UCtt5wGnVBBrmQdKgvVJuGTg">
+                <img class="youtube-img" src="resources/img/youtube.png"
+                     alt="">
+            </a>
+            <a href="https://www.instagram.com/linavashomes">
+                <img class="instagram-img"
+                     src="resources/img/instagram.png" alt="">
+            </a>
+            <a href="https://t.me/inovoseltsev">
+                <img class="telegram-img"
+                     src="resources/img/telegram.png" alt="">
+            </a>
+        </div>
+        <div class="navbar-wrapper">
+            <nav class="navbar">
+                <ul>
+                    <li class="login-li">
+                        <button class="btn btn-link">
+                            <a href="sign-in" target="_self">Log in</a>
+                        </button>
+                    </li>
+                    <li class="sign-up-li">
+                        <button class="btn btn-link">
+                            <a href="sign-up" target="_self">Sign up</a>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
 <div th:if="${errorMessage != null}" class="alert alert-danger"
      th:text="${errorMessage}"></div>
 <div class="sign-up-form-container">
     <h4 class="sign-up-caption display-4">Please sign up</h4>
     <form action="sign-up" method="post">
         <div class="form-wrapper">
-            <input class="form-control" name="firstName" type="text"
-                   placeholder="First name"
-                   th:value="${firstName}" required>
-            <input class="form-control" name="lastName" type="text"
-                   placeholder="Last name"
-                   th:value="${lastName}" required>
-            <input class="form-control" name="login" type="text"
-                   placeholder="Login"
-                   th:value="${login}" required>
-            <input class="form-control" name="password" type="password"
-                   placeholder="Password"
-                   pattern="[а-яА-Яa-zA-Z0-9_-]{4,12}"
-                   title="Введите от 4 до 12 символов" required>
-            <input class="form-control" name="repeatedPassword" type="password"
-                   placeholder="Confirm password" required>
-            <input class="form-control" name="email" type="email"
-                   th:value="${email}" placeholder="Email (not necessary)"
-                   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+            <div class="form-element-wrapper">
+                <label>Name</label>
+                <input class="form-control" name="firstName" type="text"
+                       th:value="${firstName}" required>
+            </div>
+            <div class="form-element-wrapper">
+                <label>Last name</label>
+                <input class="form-control" name="lastName" type="text"
+                       th:value="${lastName}" required>
+            </div>
+            <div class="form-element-wrapper">
+                <label>Login</label>
+                <input class="form-control" name="login" type="text"
+                       th:value="${login}" required>
+            </div>
+            <div class="form-element-wrapper">
+                <label>Password</label>
+                <input class="form-control" name="password" type="password"
+                       pattern="[а-яА-Яa-zA-Z0-9_-]{4,12}"
+                       title="Введите от 4 до 12 символов" required>
+            </div>
+            <div class="form-element-wrapper">
+                <label>Confirm password</label>
+                <input class="form-control" name="repeatedPassword"
+                       type="password"
+                       required>
+            </div>
+            <div class="form-element-wrapper">
+                <label>Email (not necessary)</label>
+                <input class="form-control last-input" name="email" type="email"
+                       th:value="${email}"
+                       pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+            </div>
         </div>
-        <button class="btn btn-primary">Confirm
-        </button>
+        <div class="btn-primary-wrapper">
+            <button class="btn btn-primary">Confirm</button>
+        </div>
     </form>
 
 </div>

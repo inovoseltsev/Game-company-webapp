@@ -1,7 +1,11 @@
 package com.inovoseltsev.holloball.model.entity;
 
+import com.inovoseltsev.holloball.model.state.State;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Map;
@@ -22,6 +26,9 @@ public class OAuth2GoogleUser {
     private String email;
     @Column(name = "LOCALE")
     private String locale;
+    @Column(name = "STATE")
+    @Enumerated(value = EnumType.STRING)
+    private State state;
 
     public OAuth2GoogleUser() {
     }
@@ -33,6 +40,7 @@ public class OAuth2GoogleUser {
         this.locale = (String) userAttributes.get("locale");
         this.firstName = "";
         this.lastName = "";
+        this.state = State.ACTIVE;
     }
 
     public String getId() {

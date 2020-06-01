@@ -5,21 +5,50 @@
     <title>Admin page</title>
     <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link href="resources/css/main.css" type="text/css"
+          rel="stylesheet">
     <link href="resources/css/admin.css" type="text/css"
           rel="stylesheet">
 </head>
 <body>
 <header>
-    <nav class="navbar">
-        <p class="nav-caption" th:text="${userFullName}"></p>
-        <ul>
-            <li class="logout-li">
-                <button class="btn">
-                    <a th:href="@{logout}">Logout</a>
-                </button>
-            </li>
-        </ul>
-    </nav>
+    <div class="head-wrapper" id="high-point">
+        <div class="caption-wrapper">
+            <div class="logo-wrapper">
+                <a href="goHome" target="_self">
+                    <img src="resources/img/logo.png" alt="">
+                </a>
+            </div>
+            <p>LightDev</p>
+        </div>
+        <div class="communication-wrapper">
+            <a href="https://www.youtube.com/channel/UCtt5wGnVBBrmQdKgvVJuGTg">
+                <img class="youtube-img" src="resources/img/youtube.png"
+                     alt="">
+            </a>
+            <a href="https://www.instagram.com/linavashomes">
+                <img class="instagram-img"
+                     src="resources/img/instagram.png" alt="">
+            </a>
+            <a href="https://t.me/inovoseltsev">
+                <img class="telegram-img"
+                     src="resources/img/telegram.png" alt="">
+            </a>
+        </div>
+        <div class="navbar-wrapper">
+            <nav class="navbar">
+                <ul>
+                    <li class="sign-up-li">
+                        <button class="btn btn-link">
+                            <a href="logout" target="_self">Logout</a>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </header>
 <div class="table-caption-wrapper">
     <h4 class="table-caption">Logged in users</h4>
