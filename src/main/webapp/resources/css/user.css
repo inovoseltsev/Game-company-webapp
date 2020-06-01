@@ -82,7 +82,6 @@ body {
 }
 
 .games-wrapper .headline-wrapper {
-    width: 75%;
     margin: 75px auto 80px auto;
     text-align: center;
     color: #333333;
@@ -95,119 +94,122 @@ body {
 }
 
 .headline-wrapper p {
+    margin-top: 20px;
     font-size: 20px;
     font-weight: 300;
     letter-spacing: 0.075em;
 }
 
-.games-wrapper .game-cover-wrapper {
-    margin: 0 auto;
-}
-
-.games-wrapper .game-cover-wrapper h2 {
-    font-weight: 400;
-    text-align: center;
-    letter-spacing: 0.22em;
-    margin-bottom: 25px;
-    font-size: 40px;
-    color: #777777;
-}
-
-.games-wrapper .game-cover-wrapper .game-photo-row-wrapper {
+.games-row {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0 auto;
+    justify-content: space-between;
+    margin-bottom: 100px;
 }
 
-.games-wrapper .game-cover-wrapper .game-photo-row-wrapper img {
-    width: 700px;
-    height: 400px;
-    border-radius: 3px;
+.games-wrapper .game-card {
+    width: 395px;
     transition: all 0.3s ease;
 }
 
-.game-photo-row-wrapper img:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+.google-play {
+    margin: 0;
 }
 
-.game-cover-wrapper .download-photo-wrapper {
-    width: 210px;
-    height: 78px;
-    margin: 0 auto;
+.game-card .game-photo-wrapper {
+    height: 240px;
 }
 
-.download-photo-wrapper img {
+.game-card:hover {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+}
+
+.games-wrapper .game-card .game-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: .25rem .25rem 0 0;
+    border-bottom: none;
+}
+
+.game-card .game-card-body {
+    border: 1px solid #dadce0;
+    border-radius: .25rem;
+    padding: 1.25rem;
+    border-top: none;
+}
+
+
+.game-card .download-photo-btn-wrapper {
+    width: 160px;
+    height: 65px;
+    margin-right: auto;
+}
+
+.download-photo-btn-wrapper img {
     width: 100%;
     height: 100%;
     transition: all 0.3s ease;
 }
 
-.download-photo-wrapper img:hover {
+.download-photo-btn-wrapper .works-btn-photo:hover {
     -webkit-transform: scale(1.02);
     -ms-transform: scale(1.02);
     transform: scale(1.02);
+}
+
+
+.technology-headline {
+    margin-top: 180px;
+}
+
+.technology-headline h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 300;
+    font-size: 40px;
 }
 
 .technologies-stack-wrapper {
-    margin-top: 150px;
-}
-
-.technologies-stack-wrapper h2 {
-    text-align: center;
-    color: #777777;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-}
-
-.technologies-stack-wrapper .technologies-photo-row-wrapper {
-    margin-bottom: 200px;
-}
-
-.technologies-photo-row-wrapper .main-technology-wrapper {
-    width: 60%;
-    height: 34%;
-    margin: 0 auto 20px auto;
-    transition: all 0.3s ease;
-}
-
-.technologies-photo-row-wrapper .main-technology-wrapper:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
-}
-
-.technologies-photo-row-wrapper .unity-photo {
     width: 100%;
-    height: 100%;
-}
-
-.technologies-photo-row-wrapper .other-technologies-wrapper {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    width: 100%;
+    justify-content: space-between;
+}
+
+.technologies-stack-wrapper .technology-card {
+    margin-bottom: 100px;
+    width: 395px;
     transition: all 0.3s ease;
+    border: 1px solid #dadce0;
+    border-radius: .25rem;
 }
 
-.technologies-photo-row-wrapper div {
-    width: 480px;
-    height: 320px;
+.technology-card:hover {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
 }
 
-.technologies-photo-row-wrapper img {
+
+.technology-card .technology-photo-wrapper {
+    height: 240px;
+    border: none;
+}
+
+.technology-card .technology-body-wrapper {
+    padding: 1.25rem;
+    margin: auto;
+}
+
+.technology-card img {
     width: 100%;
     height: 100%;
-    border-radius: 3px;
-    transition: all 0.3s ease;
 }
 
-.technologies-photo-row-wrapper img:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+
+.technology-card .unity-photo {
+    width: 100%;
+    height: 100%;
 }
 
 footer p {

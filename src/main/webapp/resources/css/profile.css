@@ -4,7 +4,7 @@
 }
 
 .profile-settings-wrapper {
-    margin-top: 50px;
+    margin-top: 5%;
 }
 
 .profile-settings-wrapper h1 {
@@ -15,13 +15,13 @@
 .profile-form-wrapper .form-block-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 3%;
 }
 
 .profile-form-wrapper .form-passwordRepeat-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
@@ -42,7 +42,7 @@
 .profile-form-wrapper .btn {
     width: 110px;
     height: 40px;
-    margin-top: 50px;
+    margin-top: 3%;
     margin-bottom: 10px;
     font-size: 17px;
     padding: 0.5rem 0.75rem;

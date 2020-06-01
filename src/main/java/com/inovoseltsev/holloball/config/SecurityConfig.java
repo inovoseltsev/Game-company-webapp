@@ -68,16 +68,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasAuthority("USER")
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/sign-in", "/sign-up", "/", "/home", "/resources" +
-                                "/**", "/webjars/**").permitAll()
+                        "/**", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
                 .rememberMeCookieName("SPSESSIONID");
-        http
-                .requiresChannel()
-                .antMatchers("/oauth2/authorization/google").requiresSecure();
-
         http
                 .logout()
                 .logoutUrl("/logout")
@@ -102,7 +98,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();
         serializer.setCookieName("SPSESSIONID");
         serializer.setDomainName("lightdev-ltd.herokuapp.com");
-//        serializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
         serializer.setCookiePath("/");
         return serializer;
     }

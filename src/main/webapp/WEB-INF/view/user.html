@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My page</title>
-    <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
-          rel="stylesheet">
-    <!--    <link rel="stylesheet"-->
-    <!--          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
-    <!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"-->
-    <!--          crossorigin="anonymous">-->
+    <title>Home</title>
+        <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
+              rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
     <link href="resources/css/user.css" type="text/css"
@@ -58,48 +58,107 @@
 <div th:if="${games}" class="games-wrapper">
     <div class="headline-wrapper">
         <h1>Games of LightDev Ltd.</h1>
-        <p>Games we created for you.</p>
-        <p>Play everywhere every time.</p>
+        <p>Are created for you.</p>
     </div>
     <div class="games-row">
-        <div class="game-cover-wrapper">
-            <h2>Hole ball</h2>
-            <div class="game-photo-row-wrapper">
+        <div class="game-card">
+            <div class="game-photo-wrapper">
                 <img src="resources/img/cover.png" alt="">
             </div>
-            <div class="download-photo-wrapper">
-                <a
-                        href="https://play.google.com/store/apps/details?id=com.lightdev.nureball"
-                        target="_blank">
+            <div class="game-card-body">
+                <p>This is one of the most exciting hyper casual games where
+                    you play role of whole which must absorb obstacles to get
+                    finish. Download it and join to casual universe!</p>
+                <div class="download-photo-btn-wrapper">
+                    <a
+                            href="https://play.google.com/store/apps/details?id=com.lightdev.nureball"
+                            target="_blank">
+                        <img class="works-btn-photo"
+                             src="resources/img/download-icon.png"
+                             alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="game-photo-wrapper">
+                <img src="resources/img/coming-soon.jpg" alt="">
+            </div>
+            <div class="game-card-body">
+                <p>Ball blaster is the game for people who prefer usual casual
+                    playing to hard in game trying. When you must always keep
+                    focus on gameplay, because one mistake and you at start
+                    again.
+                </p>
+                <div class="download-photo-btn-wrapper">
                     <img src="resources/img/download-icon.png" alt="">
-                </a>
+                </div>
+            </div>
+        </div>
+        <div class="game-card">
+            <div class="game-photo-wrapper">
+                <img src="resources/img/coming-soon.jpg" alt="">
+            </div>
+            <div class="game-card-body">
+                <p>Faling ios icons? Hmmm let it be just for kicks. You want to
+                    have fun, you must kill some waiting minutes or you just
+                    gonna waste your live, so our game is just sitting here.</p>
+                <div class="download-photo-btn-wrapper">
+                    <img src="resources/img/download-icon.png" alt="">
+                </div>
             </div>
         </div>
     </div>
+    <div class="technology-headline">
+        <h2>Technologies</h2>
+    </div>
     <div class="technologies-stack-wrapper">
-        <div class="technologies-photo-row-wrapper">
-            <div class="main-technology-wrapper">
-                <a href="https://unity.com/" target="_blank">
-                    <img class="unity-photo" src="resources/img/unity.jpg"
-                         alt="">
+        <div class="technology-card">
+            <div class="technology-photo-wrapper">
+                <img class="unity-photo" src="resources/img/unity.jpg"
+                     alt="">
+            </div>
+            <div class="technology-body-wrapper">
+                <p>Unity is one the most popular game development
+                    environments. A lot of new modern features are adding every
+                    time thereby giving possibility to create the best games
+                    for any platform.</p>
+                <a href="https://unity.com" target="_blank">
+                    <button class="btn btn-primary">See more</button>
                 </a>
             </div>
-            <div class="other-technologies-wrapper">
-                <div>
-                    <a href="https://unity3d.com/unity/features/analytics"
-                       target="_blank">
-                        <img class="analytics-photo"
-                             src="resources/img/games-unity-analytics.jpg"
-                             alt="">
-                    </a>
-                </div>
-                <div>
-                    <a href="https://play.google.com/store" target="_blank">
-                        <img class="google-play-photo"
-                             src="resources/img/google-play-games.jpg"
-                             alt="">
-                    </a>
-                </div>
+        </div>
+        <div class="technology-card">
+            <div class="technology-photo-wrapper">
+                <img class="unity-photo"
+                     src="resources/img/games-unity-analytics.jpg"
+                     alt="">
+            </div>
+            <div class="technology-body-wrapper">
+                <p>Analytics is the crucial part of every game. It helps
+                    analyze players steps and choose the optimal strategy of
+                    evolving direction. Your playing makes our game better.
+                </p>
+                <a href="https://unity3d.com/unity/features/analytics"
+                   target="_blank">
+                    <button class="btn btn-primary">See more</button>
+                </a>
+            </div>
+        </div>
+        <div class="technology-card">
+            <div class="technology-photo-wrapper google-play">
+                <img class="unity-photo"
+                     src="resources/img/google-play-games.jpg"
+                     alt="">
+            </div>
+            <div class="technology-body-wrapper">
+                <p>Google play games it's the most popular mobile app market
+                    here you can not only purchase with apps and also track
+                    your own game account and save game data for next
+                    playing.</p>
+                <a href="https://play.google.com/store" target="_blank">
+                    <button class="btn btn-primary">See more</button>
+                </a>
             </div>
         </div>
     </div>
@@ -146,7 +205,7 @@
             <h2>Gameplay</h2>
             <p>Here you may watch our games gameplay to see what is a hyper
                 casual game and how it plays. Also you get to know how to
-                build it correctly with all visual design deatils.</p>
+                build it correctly with all visual design details.</p>
             <a
                     href="https://www.youtube.com/channel/UCtt5wGnVBBrmQdKgvVJuGTg"
                     target="_blank">
@@ -204,7 +263,8 @@
                 </div>
                 <div class="bad-password" id="password_alert"></div>
                 <button type="submit" class="btn btn-primary" id="submit_btn">
-                    Save</button>
+                    Save
+                </button>
             </form>
         </div>
     </div>
