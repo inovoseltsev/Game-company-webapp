@@ -1,13 +1,10 @@
 package com.inovoseltsev.holloball.controller;
 
-import com.inovoseltsev.holloball.model.details.UserDetailsImpl;
 import com.inovoseltsev.holloball.model.entity.AppUser;
 import com.inovoseltsev.holloball.model.entity.OAuth2GoogleUser;
-import com.inovoseltsev.holloball.model.role.Role;
 import com.inovoseltsev.holloball.model.service.AppUserService;
 import com.inovoseltsev.holloball.model.service.OAuth2GoogleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,17 +39,6 @@ public class UserController {
     @GetMapping("/user")
     public String setUserPage() {
         return "redirect:/events";
-    }
-
-    @GetMapping("/makeMeAdmin")
-    public String makeUserAdmin(HttpServletRequest req, Authentication auth) {
-        String password = req.getParameter("password");
-        if (password != null && password.equals("mmfffm")) {
-            AppUser user = ((UserDetailsImpl) auth.getPrincipal()).getUser();
-            user.setRole(Role.ADMIN);
-            appUserService.update(user);
-        }
-        return "redirect:/home";
     }
 
     @GetMapping("/games")
