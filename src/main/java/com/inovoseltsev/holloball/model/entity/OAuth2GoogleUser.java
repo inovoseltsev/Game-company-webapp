@@ -90,4 +90,15 @@ public class OAuth2GoogleUser {
     public void setLocale(String locale) {
         this.locale = locale;
     }
+
+    public State getState() {
+        if (state == null) {
+            state = State.ACTIVE;
+        }
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 }

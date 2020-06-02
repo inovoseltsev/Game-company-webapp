@@ -113,7 +113,8 @@ public class UserController {
             updateOAuth2User(user, firstName, lastName);
         } else {
             AppUser user = appUserService.findById(Long.parseLong(userId));
-            if (!passwordEncoder.matches(password, user.getPassword())) {
+            if (password.length() > 0 && !passwordEncoder.matches(password,
+                    user.getPassword())) {
                 redirectAttributes.addAttribute("errorMessage", "You entered"
                         + " incorrect password");
                 return "redirect:/profile";
@@ -138,7 +139,9 @@ public class UserController {
         if (email.length() != 0) {
             user.setEmail(email);
         }
-        user.setPassword(passwordEncoder.encode(newPassword));
+        if (newPassword.length() != 0) {
+            user.setPassword(passwordEncoder.encode(newPassword));
+        }
         appUserService.update(user);
     }
 }

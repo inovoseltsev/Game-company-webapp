@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OAuth2GoogleUserServiceImpl implements OAuth2GoogleUserService {
@@ -36,7 +37,8 @@ public class OAuth2GoogleUserServiceImpl implements OAuth2GoogleUserService {
     @Override
     @Transactional(readOnly = true)
     public OAuth2GoogleUser findById(String id) {
-        return oAuth2GoogleUserRepository.findById(id).get();
+        Optional<OAuth2GoogleUser> user = oAuth2GoogleUserRepository.findById(id);
+        return user.orElse(null);
     }
 
     @Override

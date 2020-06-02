@@ -57,6 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/sign-in")
                 .loginProcessingUrl("/userLogin")
                 .defaultSuccessUrl("/home")
+                .failureForwardUrl("/failed")
                 .and()
                 .oauth2Login()
                 .loginPage("/sign-in")
@@ -77,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/sign-in");
         http
                 .csrf()
                 .disable();

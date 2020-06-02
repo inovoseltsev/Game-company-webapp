@@ -28,6 +28,11 @@
         <div class="nav-wrapper">
             <nav class="navbar">
                 <ul>
+                    <li th:if="${session.get('isAdmin')}">
+                        <button class="btn btn-link">
+                            <a href="users">Users</a>
+                        </button>
+                    </li>
                     <li>
                         <button class="btn btn-link">
                             <a href="events">Events</a>

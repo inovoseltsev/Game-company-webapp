@@ -7,42 +7,44 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
-    <link href="resources/css/main.css" type="text/css"
+    <link href="resources/css/user.css" type="text/css"
           rel="stylesheet">
     <link href="resources/css/admin.css" type="text/css"
           rel="stylesheet">
 </head>
 <body>
 <header>
-    <div class="head-wrapper" id="high-point">
-        <div class="caption-wrapper">
-            <div class="logo-wrapper">
-                <a href="goHome" target="_self">
-                    <img src="resources/img/logo.png" alt="">
-                </a>
-            </div>
-            <p>LightDev</p>
+    <div class="header-wrapper">
+        <div class="logo-wrapper">
+            <img src="resources/img/logo.png" alt="">
+            <p th:text="${userFullName}">Ilya Novoseltsev</p>
         </div>
-        <div class="communication-wrapper">
-            <a href="https://www.youtube.com/channel/UCtt5wGnVBBrmQdKgvVJuGTg">
-                <img class="youtube-img" src="resources/img/youtube.png"
-                     alt="">
-            </a>
-            <a href="https://www.instagram.com/linavashomes">
-                <img class="instagram-img"
-                     src="resources/img/instagram.png" alt="">
-            </a>
-            <a href="https://t.me/inovoseltsev">
-                <img class="telegram-img"
-                     src="resources/img/telegram.png" alt="">
-            </a>
-        </div>
-        <div class="navbar-wrapper">
+        <div class="nav-wrapper">
             <nav class="navbar">
                 <ul>
-                    <li class="sign-up-li">
+                    <li>
                         <button class="btn btn-link">
-                            <a href="logout" target="_self">Logout</a>
+                            <a href="users">Users</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-link">
+                            <a href="events">Events</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-link">
+                            <a href="games">Games</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-link">
+                            <a href="profile">Profile</a>
+                        </button>
+                    </li>
+                    <li class="logout-li">
+                        <button class="btn btn-link">
+                            <a href="logout">Logout</a>
                         </button>
                     </li>
                 </ul>
@@ -54,7 +56,8 @@
     <h4 class="table-caption">Logged in users</h4>
 </div>
 <div class="table-wrapper">
-    <table th:if="${users} != null" class="users-table table table-bordered">
+    <table th:if="${usualUsers.size()} > 0 or  ${googleUsers.size()} > 0"
+           class="users-table table table-bordered">
         <thead class="">
         <tr class="">
             <th scope="col">First name</th>
@@ -66,13 +69,37 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
+        <tr th:each="user : ${usualUsers}">
             <th th:text="${user.getFirstName()}"></th>
             <th th:text="${user.getLastName()}"></th>
             <th th:text="${user.getLogin()}"></th>
             <th th:text="${user.getEmail()}"></th>
             <th th:text="${user.getState()}"></th>
-            <th><a><button class="set-button">Edit</button></a></th>
+            <th th:if="${user.getState().name()} == 'ACTIVE' "><a
+                    th:href="'ban?id=' + ${user.getUserId()}">
+                <button class="set-button btn btn-link">Ban</button>
+            </a></th>
+            <th th:if="${user.getState().name() == 'BANNED'}"><a
+                    th:href="'activate?id=' + ${user.getUserId()}">
+                <button class="set-button btn btn-link">Activate</button>
+            </a></th>
+        </tr>
+        <tr th:if="${googleUsers}!= null"
+            th:each="googleUser : ${googleUsers}">
+            <th th:text="${googleUser.getName()}"></th>
+            <th
+                    th:text="${googleUser.getFirstName()} + ${googleUser.getLastName()}"></th>
+            <th></th>
+            <th th:text="${googleUser.getEmail()}"></th>
+            <th th:text="${googleUser.getState()}"></th>
+            <th th:if="${googleUser.getState().name() == 'ACTIVE'}"><a
+                    th:href="'ban?id=' + ${googleUser.getId()}">
+                <button class="set-button btn btn-link">Ban</button>
+            </a></th>
+            <th th:if="${googleUser.getState().name() == 'BANNED'}"><a
+                    th:href="'activate?id=' + ${googleUser.getId()}">
+                <button class="set-button btn btn-link">Activate</button>
+            </a></th>
         </tr>
         </tbody>
     </table>

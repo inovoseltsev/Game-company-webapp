@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AppUserServiceImpl implements AppUserService {
@@ -41,7 +42,8 @@ public class AppUserServiceImpl implements AppUserService {
 
     @Override
     public AppUser findById(Long id) {
-        return userRepository.findById(id).get();
+        Optional<AppUser> user = userRepository.findById(id);
+        return user.orElse(null);
     }
 
     @Override

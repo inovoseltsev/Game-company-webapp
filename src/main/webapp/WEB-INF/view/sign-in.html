@@ -53,8 +53,8 @@
         </div>
     </div>
 </header>
-<div th:if="${error}" class="alert alert-danger">Логин или пароль
-    неверны
+<div th:if="${errorMessage} != null" class="alert alert-danger"
+     th:text="${errorMessage}">
 </div>
 <div class="login-form-wrapper form-group">
     <h3 class="login-caption display-4">Please login</h3>
