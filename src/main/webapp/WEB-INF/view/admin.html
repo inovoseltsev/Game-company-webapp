@@ -86,7 +86,7 @@
         </tr>
         <tr th:if="${googleUsers}!= null"
             th:each="googleUser : ${googleUsers}">
-            <th th:text="${googleUser.getName()}"></th>
+            <th th:text="${googleUser.getNickname()}"></th>
             <th
                     th:text="${googleUser.getFirstName()} + ${googleUser.getLastName()}"></th>
             <th></th>
