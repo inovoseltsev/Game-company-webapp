@@ -1,11 +1,13 @@
-package com.inovoseltsev.lightdev.model.service.impl;
+package com.inovoseltsev.lightdev.service.impl;
 
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.entity.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.model.repository.OAuth2GoogleUserRepository;
-import com.inovoseltsev.lightdev.model.service.OAuth2GoogleUserService;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.repository.OAuth2GoogleUserRepository;
+import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.state.State;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +18,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

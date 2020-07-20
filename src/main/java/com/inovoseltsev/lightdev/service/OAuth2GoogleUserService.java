@@ -1,6 +1,6 @@
-package com.inovoseltsev.lightdev.model.service;
+package com.inovoseltsev.lightdev.service;
 
-import com.inovoseltsev.lightdev.model.entity.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
 
 import java.util.List;
 

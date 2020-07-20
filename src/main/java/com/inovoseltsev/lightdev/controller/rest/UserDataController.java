@@ -1,7 +1,7 @@
 package com.inovoseltsev.lightdev.controller.rest;
 
-import com.inovoseltsev.lightdev.model.entity.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.model.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

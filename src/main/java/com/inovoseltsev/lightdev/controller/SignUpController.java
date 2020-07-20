@@ -1,8 +1,8 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.model.validator.UserValidator;
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.service.AppUserService;
+import com.inovoseltsev.lightdev.validator.UserValidator;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

@@ -1,7 +1,7 @@
-package com.inovoseltsev.lightdev.model.details;
+package com.inovoseltsev.lightdev.details;
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.repository.AppUserRepository;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
-package com.inovoseltsev.lightdev.model.repository;
+package com.inovoseltsev.lightdev.repository;
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
+import com.inovoseltsev.lightdev.domain.AppUser;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

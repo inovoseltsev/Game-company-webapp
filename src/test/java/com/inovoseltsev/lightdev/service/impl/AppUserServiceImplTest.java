@@ -1,10 +1,13 @@
-package com.inovoseltsev.lightdev.model.service.impl;
+package com.inovoseltsev.lightdev.service.impl;
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.repository.AppUserRepository;
-import com.inovoseltsev.lightdev.model.role.Role;
-import com.inovoseltsev.lightdev.model.service.AppUserService;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.repository.AppUserRepository;
+import com.inovoseltsev.lightdev.role.Role;
+import com.inovoseltsev.lightdev.service.AppUserService;
+import com.inovoseltsev.lightdev.state.State;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

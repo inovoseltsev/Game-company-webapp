@@ -1,9 +1,9 @@
-package com.inovoseltsev.lightdev.model.service.impl;
+package com.inovoseltsev.lightdev.service.impl;
 
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.repository.AppUserRepository;
-import com.inovoseltsev.lightdev.model.service.AppUserService;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.repository.AppUserRepository;
+import com.inovoseltsev.lightdev.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

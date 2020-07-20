@@ -1,7 +1,7 @@
-package com.inovoseltsev.lightdev.model.repository;
+package com.inovoseltsev.lightdev.repository;
 
-import com.inovoseltsev.lightdev.model.entity.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.state.State;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

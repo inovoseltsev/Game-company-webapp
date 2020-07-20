@@ -1,7 +1,7 @@
-package com.inovoseltsev.lightdev.model.details;
+package com.inovoseltsev.lightdev.details;
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.state.State;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

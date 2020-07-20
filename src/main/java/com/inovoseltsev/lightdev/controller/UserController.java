@@ -1,9 +1,9 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.entity.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.model.service.AppUserService;
-import com.inovoseltsev.lightdev.model.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.service.AppUserService;
+import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

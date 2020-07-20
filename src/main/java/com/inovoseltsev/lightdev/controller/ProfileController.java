@@ -1,11 +1,11 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.model.details.UserDetailsImpl;
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.entity.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.model.role.Role;
-import com.inovoseltsev.lightdev.model.service.OAuth2GoogleUserService;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.details.UserDetailsImpl;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.role.Role;
+import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.state.State;
 import com.inovoseltsev.lightdev.oauth2.OAuth2UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

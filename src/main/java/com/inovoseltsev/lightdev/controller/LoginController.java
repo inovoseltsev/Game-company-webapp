@@ -1,9 +1,9 @@
 package com.inovoseltsev.lightdev.controller;
 
 import com.inovoseltsev.lightdev.message.ErrorMessage;
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.service.AppUserService;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.service.AppUserService;
+import com.inovoseltsev.lightdev.state.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

@@ -1,9 +1,9 @@
-package com.inovoseltsev.lightdev.model.validator;
+package com.inovoseltsev.lightdev.validator;
 
-import com.inovoseltsev.lightdev.model.entity.AppUser;
-import com.inovoseltsev.lightdev.model.role.Role;
-import com.inovoseltsev.lightdev.model.service.AppUserService;
-import com.inovoseltsev.lightdev.model.state.State;
+import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.role.Role;
+import com.inovoseltsev.lightdev.service.AppUserService;
+import com.inovoseltsev.lightdev.state.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

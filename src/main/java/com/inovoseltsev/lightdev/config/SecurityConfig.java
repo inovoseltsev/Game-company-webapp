@@ -1,8 +1,12 @@
 package com.inovoseltsev.lightdev.config;
 
-import com.inovoseltsev.lightdev.model.service.OAuth2GoogleUserService;
 import com.inovoseltsev.lightdev.oauth2.OAuth2UserImpl;
 import com.inovoseltsev.lightdev.oauth2.OAuth2UserServiceImpl;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -27,12 +31,6 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
-
-import javax.annotation.Resource;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Configuration
 @EnableWebSecurity

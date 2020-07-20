@@ -1,4 +1,4 @@
-package com.inovoseltsev.lightdev.model.state;
+package com.inovoseltsev.lightdev.state;
 
 public enum State {
     ACTIVE,
