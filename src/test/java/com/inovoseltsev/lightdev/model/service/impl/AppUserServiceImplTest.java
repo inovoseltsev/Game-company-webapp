@@ -16,6 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -90,14 +94,44 @@ class AppUserServiceImplTest {
 
     @Test
     void findByLogin() {
+        String userLogin = initialUser.getLogin();
+        Mockito.when(appUserRepository.findAppUserByLogin(userLogin))
+                .thenReturn(initialUser);
+        AppUser foundUser = appUserService.findByLogin(userLogin);
+        assertEquals(foundUser.toString(), initialUser.toString());
+        Mockito.verify(appUserRepository, Mockito.times(1))
+                .findAppUserByLogin(userLogin);
 
+        String falseLogin = "nothing";
+        Mockito.when(appUserRepository.findAppUserByLogin(falseLogin))
+                .thenReturn(null);
+        assertNull(appUserService.findByLogin(falseLogin));
     }
 
     @Test
     void findByEmail() {
+        String userEmail = initialUser.getEmail();
+        Mockito.when(appUserRepository.findAppUserByEmail(userEmail))
+                .thenReturn(initialUser);
+        AppUser foundUser = appUserService.findByEmail(userEmail);
+        assertEquals(foundUser.toString(), initialUser.toString());
+        Mockito.verify(appUserRepository, Mockito.times(1))
+                .findAppUserByEmail(userEmail);
+
+        String falseEmail = "nothing";
+        Mockito.when(appUserRepository.findAppUserByEmail(falseEmail))
+                .thenReturn(null);
+        assertNull(appUserService.findByEmail(falseEmail));
     }
 
     @Test
     void findAll() {
+        List<AppUser> users = Collections.singletonList(initialUser);
+        Mockito.when(appUserRepository.findAll())
+                .thenReturn(users);
+        List<AppUser> foundUsers = appUserService.findAll();
+        assertEquals(foundUsers, users);
+        Mockito.verify(appUserRepository, Mockito.times(1))
+                .findAll();
     }
 }

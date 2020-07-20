@@ -38,7 +38,9 @@ public class LoginController {
     public String setFailPage(@RequestParam Map<String, String> userLoginData,
                               Model model) {
         AppUser user = userService.findByLogin(userLoginData.get("login"));
-        if (user == null || user.getState().equals(State.ACTIVE)) {
+        boolean isGoogleLogin = userLoginData.containsKey("bannedGoogleAccount");
+        boolean appUserNotExists = !isGoogleLogin && user == null;
+        if (appUserNotExists || !isGoogleLogin && user.getState().equals(State.ACTIVE)) {
             model.addAttribute("errorMessage", ErrorMessage.getLoginError());
         } else {
             model.addAttribute("errorMessage", ErrorMessage.getBannedError());

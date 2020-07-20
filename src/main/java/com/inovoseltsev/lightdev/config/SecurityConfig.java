@@ -1,5 +1,6 @@
 package com.inovoseltsev.lightdev.config;
 
+import com.inovoseltsev.lightdev.model.service.OAuth2GoogleUserService;
 import com.inovoseltsev.lightdev.oauth2.OAuth2UserImpl;
 import com.inovoseltsev.lightdev.oauth2.OAuth2UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
