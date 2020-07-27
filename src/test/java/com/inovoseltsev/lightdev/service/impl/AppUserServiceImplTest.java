@@ -1,10 +1,10 @@
 package com.inovoseltsev.lightdev.service.impl;
 
 import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.role.Role;
+import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.repository.AppUserRepository;
-import com.inovoseltsev.lightdev.role.Role;
 import com.inovoseltsev.lightdev.service.AppUserService;
-import com.inovoseltsev.lightdev.state.State;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;

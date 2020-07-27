@@ -1,8 +1,8 @@
 package com.inovoseltsev.lightdev.domain;
 
 
-import com.inovoseltsev.lightdev.role.Role;
-import com.inovoseltsev.lightdev.state.State;
+import com.inovoseltsev.lightdev.domain.role.Role;
+import com.inovoseltsev.lightdev.domain.state.State;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

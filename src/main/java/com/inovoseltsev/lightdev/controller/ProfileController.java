@@ -3,10 +3,11 @@ package com.inovoseltsev.lightdev.controller;
 import com.inovoseltsev.lightdev.details.UserDetailsImpl;
 import com.inovoseltsev.lightdev.domain.AppUser;
 import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.role.Role;
-import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
-import com.inovoseltsev.lightdev.state.State;
+import com.inovoseltsev.lightdev.domain.role.Role;
+import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.oauth2.OAuth2UserImpl;
+import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -16,8 +17,6 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class ProfileController {

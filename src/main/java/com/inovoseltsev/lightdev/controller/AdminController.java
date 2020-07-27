@@ -3,10 +3,13 @@ package com.inovoseltsev.lightdev.controller;
 import com.inovoseltsev.lightdev.details.UserDetailsImpl;
 import com.inovoseltsev.lightdev.domain.AppUser;
 import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
-import com.inovoseltsev.lightdev.role.Role;
+import com.inovoseltsev.lightdev.domain.role.Role;
+import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.service.AppUserService;
 import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
-import com.inovoseltsev.lightdev.state.State;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -16,10 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @SessionAttributes("userFullName")

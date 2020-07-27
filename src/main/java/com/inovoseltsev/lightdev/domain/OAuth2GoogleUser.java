@@ -1,14 +1,13 @@
 package com.inovoseltsev.lightdev.domain;
 
-import com.inovoseltsev.lightdev.state.State;
-
+import com.inovoseltsev.lightdev.domain.state.State;
+import java.util.Map;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Map;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;

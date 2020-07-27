@@ -1,13 +1,12 @@
 package com.inovoseltsev.lightdev.validator;
 
 import com.inovoseltsev.lightdev.domain.AppUser;
-import com.inovoseltsev.lightdev.role.Role;
+import com.inovoseltsev.lightdev.domain.role.Role;
+import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.service.AppUserService;
-import com.inovoseltsev.lightdev.state.State;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Map;
 
 @Component
 public class UserValidator {

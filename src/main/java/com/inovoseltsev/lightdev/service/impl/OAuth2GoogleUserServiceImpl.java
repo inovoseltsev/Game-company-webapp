@@ -3,12 +3,11 @@ package com.inovoseltsev.lightdev.service.impl;
 import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
 import com.inovoseltsev.lightdev.repository.OAuth2GoogleUserRepository;
 import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OAuth2GoogleUserServiceImpl implements OAuth2GoogleUserService {

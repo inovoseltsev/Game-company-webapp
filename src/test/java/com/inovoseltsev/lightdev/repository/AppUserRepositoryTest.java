@@ -1,8 +1,8 @@
 package com.inovoseltsev.lightdev.repository;
 
 import com.inovoseltsev.lightdev.domain.AppUser;
-import com.inovoseltsev.lightdev.role.Role;
-import com.inovoseltsev.lightdev.state.State;
+import com.inovoseltsev.lightdev.domain.role.Role;
+import com.inovoseltsev.lightdev.domain.state.State;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
