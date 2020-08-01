@@ -1,6 +1,6 @@
-package com.inovoseltsev.lightdev.details;
+package com.inovoseltsev.lightdev.security.details;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.domain.state.State;
 import java.util.Collection;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.inovoseltsev.lightdev.domain;
+package com.inovoseltsev.lightdev.domain.entity;
 
 
 import com.inovoseltsev.lightdev.domain.role.Role;

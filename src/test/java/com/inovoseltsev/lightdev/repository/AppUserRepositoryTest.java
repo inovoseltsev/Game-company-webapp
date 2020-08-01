@@ -1,6 +1,6 @@
 package com.inovoseltsev.lightdev.repository;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.domain.role.Role;
 import com.inovoseltsev.lightdev.domain.state.State;
 import org.junit.jupiter.api.BeforeAll;

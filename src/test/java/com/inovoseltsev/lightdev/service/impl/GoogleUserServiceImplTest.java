@@ -1,10 +1,10 @@
 package com.inovoseltsev.lightdev.service.impl;
 
 
-import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.domain.entity.GoogleUser;
 import com.inovoseltsev.lightdev.domain.state.State;
-import com.inovoseltsev.lightdev.repository.OAuth2GoogleUserRepository;
-import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.repository.GoogleUserRepository;
+import com.inovoseltsev.lightdev.service.GoogleUserService;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -24,22 +24,22 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class OAuth2GoogleUserServiceImplTest {
+class GoogleUserServiceImplTest {
 
     @Autowired
-    private OAuth2GoogleUserService googleUserService;
+    private GoogleUserService googleUserService;
 
     @MockBean
-    private OAuth2GoogleUserRepository googleUserRepository;
+    private GoogleUserRepository googleUserRepository;
 
     @MockBean
     ClientRegistrationRepository clientRegistrationRepository;
 
-    private static OAuth2GoogleUser initialUser;
+    private static GoogleUser initialUser;
 
     @BeforeAll
     public static void setUp() {
-        initialUser = new OAuth2GoogleUser("1", "Johnson", "John",
+        initialUser = new GoogleUser("1", "Johnson", "John",
                 "johnson", "johnJackson@gmail.com", "en", State.ACTIVE);
     }
 
@@ -69,7 +69,7 @@ class OAuth2GoogleUserServiceImplTest {
         String userId = "1";
         Mockito.when(googleUserRepository.findById(userId))
                 .thenReturn(Optional.of(initialUser));
-        OAuth2GoogleUser foundUser = googleUserService.findById(userId);
+        GoogleUser foundUser = googleUserService.findById(userId);
         assertEquals(foundUser, initialUser);
         Mockito.verify(googleUserRepository, Mockito.times(1))
                 .findById(userId);
@@ -86,7 +86,7 @@ class OAuth2GoogleUserServiceImplTest {
         String userEmail = "johnJackson@gmail.com";
         Mockito.when(googleUserRepository.findAuthUserByEmail(userEmail))
                 .thenReturn(initialUser);
-        OAuth2GoogleUser foundUser = googleUserService.findByEmail(userEmail);
+        GoogleUser foundUser = googleUserService.findByEmail(userEmail);
         assertEquals(foundUser, initialUser);
         Mockito.verify(googleUserRepository, Mockito.times(1))
                 .findAuthUserByEmail(userEmail);
@@ -100,10 +100,10 @@ class OAuth2GoogleUserServiceImplTest {
 
     @Test
     void findAll() {
-        List<OAuth2GoogleUser> users = Collections.singletonList(initialUser);
+        List<GoogleUser> users = Collections.singletonList(initialUser);
         Mockito.when(googleUserRepository.findAll())
                 .thenReturn(users);
-        List<OAuth2GoogleUser> foundUsers = googleUserService.findAll();
+        List<GoogleUser> foundUsers = googleUserService.findAll();
         assertEquals(foundUsers, users);
         Mockito.verify(googleUserRepository, Mockito.times(1))
                 .findAll();

@@ -1,12 +1,11 @@
-package com.inovoseltsev.lightdev.oauth2;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+package com.inovoseltsev.lightdev.security.oauth2;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 public class OAuth2UserImpl implements OAuth2User {
     private final Map<String, Object> userAttributes;

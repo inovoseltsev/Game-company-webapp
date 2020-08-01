@@ -1,12 +1,12 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.details.UserDetailsImpl;
-import com.inovoseltsev.lightdev.domain.AppUser;
-import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.GoogleUser;
 import com.inovoseltsev.lightdev.domain.role.Role;
 import com.inovoseltsev.lightdev.domain.state.State;
-import com.inovoseltsev.lightdev.oauth2.OAuth2UserImpl;
-import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.security.details.UserDetailsImpl;
+import com.inovoseltsev.lightdev.security.oauth2.OAuth2UserImpl;
+import com.inovoseltsev.lightdev.service.GoogleUserService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -28,7 +28,7 @@ public class ProfileController {
     private OAuth2UserService<OAuth2UserRequest, OAuth2UserImpl> oAuth2UserService;
 
     @Autowired
-    private OAuth2GoogleUserService auth2GoogleUserService;
+    private GoogleUserService auth2GoogleUserService;
 
     @GetMapping("/home")
     public String displayProfilePage(Authentication authentication,
@@ -61,10 +61,10 @@ public class ProfileController {
         OAuth2UserImpl oAuth2User =
                 oAuth2UserService.loadUser(new OAuth2UserRequest(client
                         .getClientRegistration(), client.getAccessToken()));
-        OAuth2GoogleUser user =
+        GoogleUser user =
                 auth2GoogleUserService.findByEmail(oAuth2User.getName());
         if (user == null) {
-            user = new OAuth2GoogleUser(oAuth2User.getAttributes());
+            user = new GoogleUser(oAuth2User.getAttributes());
             auth2GoogleUserService.create(user);
             session.setAttribute("userFullName", user.getNickname());
             session.setAttribute("userId", user.getId());

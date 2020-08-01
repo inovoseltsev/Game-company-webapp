@@ -1,4 +1,4 @@
-package com.inovoseltsev.lightdev.listener;
+package com.inovoseltsev.lightdev.security.listener;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent;

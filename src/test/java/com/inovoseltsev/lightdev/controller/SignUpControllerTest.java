@@ -1,8 +1,8 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.repository.AppUserRepository;
-import com.inovoseltsev.lightdev.repository.OAuth2GoogleUserRepository;
+import com.inovoseltsev.lightdev.repository.GoogleUserRepository;
 import com.inovoseltsev.lightdev.service.AppUserService;
 import com.inovoseltsev.lightdev.validator.UserValidator;
 import org.junit.jupiter.api.BeforeAll;
@@ -48,7 +48,7 @@ class SignUpControllerTest {
     ClientRegistrationRepository clientRegistrationRepository;
 
     @MockBean
-    private OAuth2GoogleUserRepository googleUserRepository;
+    private GoogleUserRepository googleUserRepository;
 
     @Autowired
     private MockMvc mockMvc;

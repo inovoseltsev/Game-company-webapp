@@ -1,7 +1,6 @@
 package com.inovoseltsev.lightdev.service;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
-
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import java.util.List;
 
 

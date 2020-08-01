@@ -1,6 +1,6 @@
 package com.inovoseltsev.lightdev.repository;
 
-import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.domain.entity.GoogleUser;
 import com.inovoseltsev.lightdev.domain.state.State;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,21 +16,21 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-class OAuth2GoogleUserRepositoryTest {
+class GoogleUserRepositoryTest {
 
     @Autowired
-    private OAuth2GoogleUserRepository oAuth2GoogleUserRepository;
+    private GoogleUserRepository googleUserRepository;
 
     @Autowired
     private TestEntityManager entityManager;
 
-    private static OAuth2GoogleUser initialUser;
+    private static GoogleUser initialUser;
 
-    private OAuth2GoogleUser foundUser;
+    private GoogleUser foundUser;
 
     @BeforeAll
     public static void setInitialUser() {
-        initialUser = new OAuth2GoogleUser("123123123", "Johnson", "John",
+        initialUser = new GoogleUser("123123123", "Johnson", "John",
                 "johnson", "johnJackson@gmail.com", "en", State.ACTIVE);
     }
 
@@ -38,10 +38,10 @@ class OAuth2GoogleUserRepositoryTest {
     void findAuthUserByEmail() {
         entityManager.persist(initialUser);
         entityManager.flush();
-        foundUser = oAuth2GoogleUserRepository
+        foundUser = googleUserRepository
                 .findAuthUserByEmail("johnJackson@gmail.com");
         assertEquals(foundUser.getEmail(), initialUser.getEmail());
-        foundUser = oAuth2GoogleUserRepository.findAuthUserByEmail("notExists");
+        foundUser = googleUserRepository.findAuthUserByEmail("notExists");
         assertNull(foundUser);
     }
 }

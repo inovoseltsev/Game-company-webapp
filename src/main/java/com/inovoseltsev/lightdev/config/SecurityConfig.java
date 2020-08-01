@@ -1,7 +1,7 @@
 package com.inovoseltsev.lightdev.config;
 
-import com.inovoseltsev.lightdev.oauth2.OAuth2UserImpl;
-import com.inovoseltsev.lightdev.oauth2.OAuth2UserServiceImpl;
+import com.inovoseltsev.lightdev.security.oauth2.OAuth2UserImpl;
+import com.inovoseltsev.lightdev.security.oauth2.OAuth2UserServiceImpl;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -68,7 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasAuthority("USER")
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/sign-in", "/sign-up", "/", "/home", "/resources" +
-                        "/**", "/webjars/**", "/goHome", "/getUserData/").permitAll()
+                        "/**", "/webjars/**", "/goHome").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .rememberMe()

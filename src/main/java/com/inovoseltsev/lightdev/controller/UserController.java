@@ -1,9 +1,12 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
-import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.GoogleUser;
 import com.inovoseltsev.lightdev.service.AppUserService;
-import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.service.GoogleUserService;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,10 +18,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.Map;
-
 @Controller
 @SessionAttributes({"userFullName", "userId", "isOAuth2"})
 public class UserController {
@@ -26,7 +25,7 @@ public class UserController {
     private AppUserService appUserService;
 
     @Autowired
-    private OAuth2GoogleUserService auth2GoogleUserService;
+    private GoogleUserService auth2GoogleUserService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -71,7 +70,7 @@ public class UserController {
                     req.getParameter("errorMessage"));
         }
         if (isOAuth2) {
-            OAuth2GoogleUser user = auth2GoogleUserService.findById(userId);
+            GoogleUser user = auth2GoogleUserService.findById(userId);
             model.addAttribute("firstName", user.getFirstName());
             model.addAttribute("lastName", user.getLastName());
             model.addAttribute("email", user.getEmail());
@@ -95,7 +94,7 @@ public class UserController {
         String password = userData.get("password");
         String newPassword = userData.get("newPassword");
         if (isOAuth2) {
-            OAuth2GoogleUser user = auth2GoogleUserService.findById(userId);
+            GoogleUser user = auth2GoogleUserService.findById(userId);
             updateOAuth2User(user, firstName, lastName);
         } else {
             AppUser user = appUserService.findById(Long.parseLong(userId));
@@ -110,7 +109,7 @@ public class UserController {
         return "redirect:/profile";
     }
 
-    private void updateOAuth2User(OAuth2GoogleUser user, String firstName,
+    private void updateOAuth2User(GoogleUser user, String firstName,
                                   String lastName) {
         user.setFirstName(firstName);
         user.setLastName(lastName);

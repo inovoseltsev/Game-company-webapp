@@ -1,12 +1,12 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.details.UserDetailsImpl;
-import com.inovoseltsev.lightdev.domain.AppUser;
-import com.inovoseltsev.lightdev.domain.OAuth2GoogleUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.GoogleUser;
 import com.inovoseltsev.lightdev.domain.role.Role;
 import com.inovoseltsev.lightdev.domain.state.State;
+import com.inovoseltsev.lightdev.security.details.UserDetailsImpl;
 import com.inovoseltsev.lightdev.service.AppUserService;
-import com.inovoseltsev.lightdev.service.OAuth2GoogleUserService;
+import com.inovoseltsev.lightdev.service.GoogleUserService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -28,12 +28,12 @@ public class AdminController {
     private AppUserService userService;
 
     @Autowired
-    private OAuth2GoogleUserService auth2GoogleUserService;
+    private GoogleUserService auth2GoogleUserService;
 
     @GetMapping("/users")
     public ModelAndView setUsersTable(ModelMap model) {
         List<AppUser> usualUsers = new ArrayList<>();
-        List<OAuth2GoogleUser> googleUsers = auth2GoogleUserService.findAll();
+        List<GoogleUser> googleUsers = auth2GoogleUserService.findAll();
         for (AppUser siteUser : userService.findAll()) {
             if (siteUser.getRole().equals(Role.USER)) {
                 usualUsers.add(siteUser);
@@ -46,7 +46,7 @@ public class AdminController {
 
     @GetMapping("/ban")
     public String banUser(@RequestParam String id) {
-        OAuth2GoogleUser user = auth2GoogleUserService.findById(id);
+        GoogleUser user = auth2GoogleUserService.findById(id);
         if (user != null) {
             user.setState(State.BANNED);
             auth2GoogleUserService.update(user);
@@ -60,7 +60,7 @@ public class AdminController {
 
     @GetMapping("/activate")
     public String activateUser(@RequestParam String id) {
-        OAuth2GoogleUser user = auth2GoogleUserService.findById(id);
+        GoogleUser user = auth2GoogleUserService.findById(id);
         if (user != null) {
             user.setState(State.ACTIVE);
             auth2GoogleUserService.update(user);

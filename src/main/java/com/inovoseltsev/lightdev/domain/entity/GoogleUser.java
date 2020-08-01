@@ -1,4 +1,4 @@
-package com.inovoseltsev.lightdev.domain;
+package com.inovoseltsev.lightdev.domain.entity;
 
 import com.inovoseltsev.lightdev.domain.state.State;
 import java.util.Map;
@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class OAuth2GoogleUser {
+public class GoogleUser {
 
     @Id
     @Column(name = "USER_ID")
@@ -50,7 +50,7 @@ public class OAuth2GoogleUser {
     @NonNull
     private State state;
 
-    public OAuth2GoogleUser(Map<String, Object> userAttributes) {
+    public GoogleUser(Map<String, Object> userAttributes) {
         this.id = (String) userAttributes.get("sub");
         this.nickname = (String) userAttributes.get("name");
         this.email = (String) userAttributes.get("email");

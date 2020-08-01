@@ -1,6 +1,6 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.message.ErrorMessage;
 import com.inovoseltsev.lightdev.service.AppUserService;

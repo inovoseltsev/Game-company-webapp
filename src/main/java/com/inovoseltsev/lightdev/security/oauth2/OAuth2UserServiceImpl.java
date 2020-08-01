@@ -1,5 +1,6 @@
-package com.inovoseltsev.lightdev.oauth2;
+package com.inovoseltsev.lightdev.security.oauth2;
 
+import java.util.Map;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -9,8 +10,6 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
 
 public class OAuth2UserServiceImpl implements OAuth2UserService<OAuth2UserRequest, OAuth2UserImpl> {
     @Override

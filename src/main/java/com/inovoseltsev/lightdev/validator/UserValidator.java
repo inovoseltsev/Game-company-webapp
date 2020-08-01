@@ -1,6 +1,6 @@
 package com.inovoseltsev.lightdev.validator;
 
-import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.domain.role.Role;
 import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.service.AppUserService;

@@ -1,16 +1,15 @@
 package com.inovoseltsev.lightdev.controller;
 
-import com.inovoseltsev.lightdev.validator.UserValidator;
-import com.inovoseltsev.lightdev.domain.AppUser;
+import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.service.AppUserService;
+import com.inovoseltsev.lightdev.validator.UserValidator;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Map;
 
 @Controller
 public class SignUpController {
