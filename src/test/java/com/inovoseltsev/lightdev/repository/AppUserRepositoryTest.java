@@ -19,14 +19,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @DataJpaTest
 class AppUserRepositoryTest {
 
-    public AppUserRepositoryTest() {
-    }
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
     private TestEntityManager entityManager;
-
-    @Autowired
-    private AppUserRepository appUserRepository;
 
     private static AppUser initialUser;
 
@@ -35,7 +32,8 @@ class AppUserRepositoryTest {
     @BeforeAll
     public static void setInitialUser() {
         initialUser = new AppUser("John", "Jackson", "johnJackson", "1234",
-                "johnJackson@gmail.com", Role.USER, State.ACTIVE);
+                "johnJackson@gmail.com", Role.USER);
+        initialUser.setState(State.ACTIVE);
     }
 
     @Test

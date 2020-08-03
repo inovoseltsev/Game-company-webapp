@@ -2,7 +2,6 @@ package com.inovoseltsev.lightdev.controller.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.inovoseltsev.lightdev.domain.entity.GoogleUser;
-import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.domain.userfinder.google.GoogleUserFinderByEmail;
 import com.inovoseltsev.lightdev.domain.userfinder.google.GoogleUserFinderById;
 import com.inovoseltsev.lightdev.service.GoogleUserService;
@@ -64,8 +63,7 @@ class GoogleUserControllerTest {
     @BeforeAll
     public static void setUp() {
         googleUsers = Collections.singletonList(new GoogleUser("123", "Johnson",
-                "John", "johnson", "johnJackson@gmail.com", "en",
-                State.ACTIVE));
+                "John", "johnson", "johnJackson@gmail.com", "en"));
         correctUserId = "123";
         wrongUserId = "125";
         correctUserEmail = "johnJackson@gmail.com";

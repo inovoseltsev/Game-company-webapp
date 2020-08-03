@@ -31,7 +31,8 @@ class GoogleUserRepositoryTest {
     @BeforeAll
     public static void setInitialUser() {
         initialUser = new GoogleUser("123123123", "Johnson", "John",
-                "johnson", "johnJackson@gmail.com", "en", State.ACTIVE);
+                "johnson", "johnJackson@gmail.com", "en");
+        initialUser.setState(State.ACTIVE);
     }
 
     @Test

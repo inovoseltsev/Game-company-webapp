@@ -2,31 +2,25 @@ package com.inovoseltsev.lightdev.domain.entity;
 
 
 import com.inovoseltsev.lightdev.domain.role.Role;
-import com.inovoseltsev.lightdev.domain.state.State;
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
-@Entity
-@Table(name = "app_user")
+
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
-public class AppUser implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private Long userId;
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@Entity
+@Table(name = "app_user")
+public class AppUser extends AbstractEntity {
 
     @Column(name = "first_name", nullable = false)
     @NonNull
@@ -52,9 +46,4 @@ public class AppUser implements Serializable {
     @Enumerated(value = EnumType.STRING)
     @NonNull
     private Role role;
-
-    @Column(name = "state", nullable = false)
-    @Enumerated(value = EnumType.STRING)
-    @NonNull
-    private State state;
 }

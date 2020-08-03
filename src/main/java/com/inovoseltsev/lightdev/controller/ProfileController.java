@@ -41,7 +41,7 @@ public class ProfileController {
         AppUser user = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         String userFullName = user.getFirstName() + " " + user.getLastName();
         session.setAttribute("isOAuth2", false);
-        session.setAttribute("userId", user.getUserId());
+        session.setAttribute("userId", user.getId());
         session.setAttribute("userFullName", userFullName);
         if (user.getRole().equals(Role.ADMIN)) {
             session.setAttribute("isAdmin", true);

@@ -40,7 +40,8 @@ class GoogleUserServiceImplTest {
     @BeforeAll
     public static void setUp() {
         initialUser = new GoogleUser("1", "Johnson", "John",
-                "johnson", "johnJackson@gmail.com", "en", State.ACTIVE);
+                "johnson", "johnJackson@gmail.com", "en");
+        initialUser.setState(State.ACTIVE);
     }
 
     @Test

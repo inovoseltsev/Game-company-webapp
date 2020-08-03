@@ -44,8 +44,9 @@ class AppUserServiceImplTest {
     @BeforeAll
     public static void setUp() {
         initialUser = new AppUser("John", "Jackson", "johnJackson", "1234",
-                "johnJackson@gmail.com", Role.USER, State.ACTIVE);
-        initialUser.setUserId(0L);
+                "johnJackson@gmail.com", Role.USER);
+        initialUser.setState(State.ACTIVE);
+        initialUser.setId(0L);
     }
 
     @Test
