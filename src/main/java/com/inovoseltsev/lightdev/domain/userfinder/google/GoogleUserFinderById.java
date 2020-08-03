@@ -14,6 +14,6 @@ public class GoogleUserFinderById implements UserServiceFinder {
 
     @Override
     public GoogleUser findUser(Object id) {
-        return googleUserService.findById((String) id);
+        return googleUserService.findById((Long) id);
     }
 }

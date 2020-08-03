@@ -35,7 +35,7 @@ public class GoogleUserServiceImpl implements GoogleUserService {
 
     @Override
     @Transactional(readOnly = true)
-    public GoogleUser findById(String id) {
+    public GoogleUser findById(Long id) {
         Optional<GoogleUser> user = googleUserRepository.findById(id);
         return user.orElse(null);
     }

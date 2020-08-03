@@ -61,7 +61,7 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String setProfilePage(Model model, @SessionAttribute String userId,
+    public String setProfilePage(Model model, @SessionAttribute Long userId,
                                  @SessionAttribute Boolean isOAuth2,
                                  HttpServletRequest req) {
         model.addAttribute("profile", true);
@@ -75,7 +75,7 @@ public class UserController {
             model.addAttribute("lastName", user.getLastName());
             model.addAttribute("email", user.getEmail());
         } else {
-            AppUser user = appUserService.findById(Long.parseLong(userId));
+            AppUser user = appUserService.findById(userId);
             model.addAttribute("firstName", user.getFirstName());
             model.addAttribute("lastName", user.getLastName());
             model.addAttribute("email", user.getEmail());
@@ -85,7 +85,7 @@ public class UserController {
 
     @PostMapping("/saveProfile")
     public String updateProfilePage(@RequestParam Map<String, String> userData,
-                                    @SessionAttribute String userId,
+                                    @SessionAttribute Long userId,
                                     @SessionAttribute Boolean isOAuth2,
                                     RedirectAttributes redirectAttributes) {
         String firstName = userData.get("firstName");
@@ -97,7 +97,7 @@ public class UserController {
             GoogleUser user = auth2GoogleUserService.findById(userId);
             updateOAuth2User(user, firstName, lastName);
         } else {
-            AppUser user = appUserService.findById(Long.parseLong(userId));
+            AppUser user = appUserService.findById(userId);
             if (password.length() > 0 && !passwordEncoder.matches(password,
                     user.getPassword())) {
                 redirectAttributes.addAttribute("errorMessage", "You entered"

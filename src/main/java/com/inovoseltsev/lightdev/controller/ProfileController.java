@@ -74,7 +74,7 @@ public class ProfileController {
             }
             session.setAttribute("userFullName", oAuth2User.getAttribute(
                     "name"));
-            session.setAttribute("userId", oAuth2User.getAttribute("sub"));
+            session.setAttribute("userId", user.getId());
         }
         session.setAttribute("isOAuth2", true);
         session.setAttribute("isAdmin", false);

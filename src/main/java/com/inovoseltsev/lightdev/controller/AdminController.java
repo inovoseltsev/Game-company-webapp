@@ -45,13 +45,13 @@ public class AdminController {
     }
 
     @GetMapping("/ban")
-    public String banUser(@RequestParam String id) {
+    public String banUser(@RequestParam Long id) {
         GoogleUser user = auth2GoogleUserService.findById(id);
         if (user != null) {
             user.setState(State.BANNED);
             auth2GoogleUserService.update(user);
         } else {
-            AppUser appUser = userService.findById(Long.parseLong(id));
+            AppUser appUser = userService.findById(id);
             appUser.setState(State.BANNED);
             userService.update(appUser);
         }
@@ -59,13 +59,13 @@ public class AdminController {
     }
 
     @GetMapping("/activate")
-    public String activateUser(@RequestParam String id) {
+    public String activateUser(@RequestParam Long id) {
         GoogleUser user = auth2GoogleUserService.findById(id);
         if (user != null) {
             user.setState(State.ACTIVE);
             auth2GoogleUserService.update(user);
         } else {
-            AppUser appUser = userService.findById(Long.parseLong(id));
+            AppUser appUser = userService.findById(id);
             appUser.setState(State.ACTIVE);
             userService.update(appUser);
         }

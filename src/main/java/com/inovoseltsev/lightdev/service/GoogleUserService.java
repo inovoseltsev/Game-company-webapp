@@ -10,7 +10,7 @@ public interface GoogleUserService {
 
     void delete(GoogleUser user);
 
-    GoogleUser findById(String id);
+    GoogleUser findById(Long id);
 
     GoogleUser findByEmail(String email);
 

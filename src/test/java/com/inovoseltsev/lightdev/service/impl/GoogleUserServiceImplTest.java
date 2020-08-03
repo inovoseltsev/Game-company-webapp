@@ -67,7 +67,7 @@ class GoogleUserServiceImplTest {
 
     @Test
     void findById() {
-        String userId = "1";
+        Long userId = 1L;
         Mockito.when(googleUserRepository.findById(userId))
                 .thenReturn(Optional.of(initialUser));
         GoogleUser foundUser = googleUserService.findById(userId);
@@ -75,7 +75,7 @@ class GoogleUserServiceImplTest {
         Mockito.verify(googleUserRepository, Mockito.times(1))
                 .findById(userId);
 
-        String falseUserId = "nothing";
+        Long falseUserId = 0L;
         Mockito.when(googleUserRepository.findById(falseUserId))
                 .thenReturn(Optional.empty());
         foundUser = googleUserService.findById(falseUserId);

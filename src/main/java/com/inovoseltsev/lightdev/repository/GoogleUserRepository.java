@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GoogleUserRepository extends CrudRepository<GoogleUser, String> {
+public interface GoogleUserRepository extends CrudRepository<GoogleUser, Long> {
     GoogleUser findAuthUserByEmail(String email);
 }
