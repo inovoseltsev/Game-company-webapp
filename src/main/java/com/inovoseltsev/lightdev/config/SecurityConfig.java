@@ -45,8 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("userDetailsServiceImpl")
     private UserDetailsService userDetailsService;
 
-    private static final String CLIENT_PROPERTY_KEY
-            = "spring.security.oauth2.client.registration.";
+    private static final String CLIENT_PROPERTY_KEY = "spring.security.oauth2.client.registration.";
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -114,13 +113,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private ClientRegistration getRegistration(String client) {
-        String clientId = environment.getProperty(
-                CLIENT_PROPERTY_KEY + client + ".client-id");
+        String clientId = environment.getProperty(CLIENT_PROPERTY_KEY + client + ".client-id");
         if (clientId == null) {
             return null;
         }
-        String clientSecret = environment.getProperty(
-                CLIENT_PROPERTY_KEY + client + ".client-secret");
+        String clientSecret = environment.getProperty(CLIENT_PROPERTY_KEY + client + ".client-secret");
         if (client.equals("google")) {
             return CommonOAuth2Provider.GOOGLE.getBuilder(client)
                     .clientId(clientId).clientSecret(clientSecret).build();

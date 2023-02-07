@@ -4,6 +4,7 @@ import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.service.AppUserService;
 import com.inovoseltsev.lightdev.validator.UserValidator;
 import java.util.Map;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,10 +27,9 @@ public class SignUpController {
     }
 
     @PostMapping("/sign-up")
-    public String createUser(@RequestParam Map<String, String> userParameters,
-                             ModelMap model) {
+    public String createUser(@RequestParam Map<String, String> userParameters, ModelMap model) {
         AppUser user = userValidator.build(userParameters);
-        if (user == null) {
+        if (Objects.isNull(user)) {
             model.addAttribute("errorMessage", userValidator.getErrorMessage());
             model.addAttribute("firstName", userParameters.get("firstName"));
             model.addAttribute("lastName", userParameters.get("lastName"));

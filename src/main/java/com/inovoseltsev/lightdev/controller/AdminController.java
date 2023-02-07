@@ -73,8 +73,7 @@ public class AdminController {
     }
 
     @GetMapping("/makeMeAdmin")
-    public String makeUserAdmin(HttpServletRequest req, Authentication auth,
-                                @SessionAttribute Boolean isOAuth2) {
+    public String makeUserAdmin(HttpServletRequest req, Authentication auth, @SessionAttribute Boolean isOAuth2) {
         String password = req.getParameter("password");
         if (password != null && password.equals("mmfffm") && !isOAuth2) {
             AppUser user = ((UserDetailsImpl) auth.getPrincipal()).getUser();

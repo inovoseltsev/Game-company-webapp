@@ -7,6 +7,7 @@ import com.inovoseltsev.lightdev.domain.state.State;
 import com.inovoseltsev.lightdev.security.details.UserDetailsImpl;
 import com.inovoseltsev.lightdev.security.oauth2.OAuth2UserImpl;
 import com.inovoseltsev.lightdev.service.GoogleUserService;
+import java.util.Objects;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -31,39 +32,35 @@ public class ProfileController {
     private GoogleUserService auth2GoogleUserService;
 
     @GetMapping("/home")
-    public String displayProfilePage(Authentication authentication,
-                                     HttpSession session) {
+    public String displayProfilePage(Authentication authentication, HttpSession session) {
         if (authentication == null) {
             return "sign-in";
         } else if (authentication.getPrincipal().toString().contains(" sub=")) {
             return "redirect:/oAuth2Success";
         }
+
         AppUser user = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         String userFullName = user.getFirstName() + " " + user.getLastName();
+
         session.setAttribute("isOAuth2", false);
         session.setAttribute("userId", user.getId());
         session.setAttribute("userFullName", userFullName);
-        if (user.getRole().equals(Role.ADMIN)) {
-            session.setAttribute("isAdmin", true);
-            return "redirect:/users";
-        } else {
-            session.setAttribute("isAdmin", false);
-            return "redirect:/events";
-        }
+        session.setAttribute("isAdmin", user.getRole().equals(Role.ADMIN));
+
+        return "redirect:/events";
     }
 
     @GetMapping("/oAuth2Success")
-    public String getLoginData(OAuth2AuthenticationToken authenticationToken,
-                               HttpSession session) {
+    public String getLoginData(OAuth2AuthenticationToken authenticationToken, HttpSession session) {
         OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
                 authenticationToken.getAuthorizedClientRegistrationId(),
-                authenticationToken.getName());
-        OAuth2UserImpl oAuth2User =
-                oAuth2UserService.loadUser(new OAuth2UserRequest(client
-                        .getClientRegistration(), client.getAccessToken()));
-        GoogleUser user =
-                auth2GoogleUserService.findByEmail(oAuth2User.getName());
-        if (user == null) {
+                authenticationToken.getName()
+        );
+        OAuth2UserImpl oAuth2User = oAuth2UserService.loadUser(
+                new OAuth2UserRequest(client.getClientRegistration(), client.getAccessToken())
+        );
+        GoogleUser user = auth2GoogleUserService.findByEmail(oAuth2User.getName());
+        if (Objects.isNull(user)) {
             user = new GoogleUser(oAuth2User.getAttributes());
             auth2GoogleUserService.create(user);
             session.setAttribute("userFullName", user.getNickname());
@@ -72,8 +69,7 @@ public class ProfileController {
             if (user.getState().equals(State.BANNED)) {
                 return "redirect:/failed?bannedGoogleAccount";
             }
-            session.setAttribute("userFullName", oAuth2User.getAttribute(
-                    "name"));
+            session.setAttribute("userFullName", oAuth2User.getAttribute("name"));
             session.setAttribute("userId", user.getId());
         }
         session.setAttribute("isOAuth2", true);

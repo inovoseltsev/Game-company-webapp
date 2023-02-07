@@ -22,8 +22,7 @@ public class LoginController {
     private AppUserService userService;
 
     @GetMapping("/sign-in")
-    public String displayLoginPage(HttpServletRequest req, ModelMap model,
-                                   Authentication authentication) {
+    public String displayLoginPage(HttpServletRequest req, ModelMap model, Authentication authentication) {
         if (authentication != null) {
             return "redirect:/home";
         }

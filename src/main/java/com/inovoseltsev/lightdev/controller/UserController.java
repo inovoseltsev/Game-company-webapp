@@ -41,8 +41,7 @@ public class UserController {
     }
 
     @GetMapping("/games")
-    public String setGamesPage(HttpSession session,
-                               Model model) {
+    public String setGamesPage(HttpSession session, Model model) {
         if (session.getAttribute("userFullName") == null) {
             return "redirect:/home";
         }
@@ -51,8 +50,7 @@ public class UserController {
     }
 
     @GetMapping("/events")
-    public String setEventsPage(HttpSession session,
-                                Model model) {
+    public String setEventsPage(HttpSession session, Model model) {
         if (session.getAttribute("userFullName") == null) {
             return "redirect:/home";
         }
@@ -61,13 +59,14 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String setProfilePage(Model model, @SessionAttribute Long userId,
-                                 @SessionAttribute Boolean isOAuth2,
-                                 HttpServletRequest req) {
+    public String setProfilePage(
+            Model model,
+            @SessionAttribute Long userId,
+            @SessionAttribute Boolean isOAuth2,
+            HttpServletRequest req) {
         model.addAttribute("profile", true);
         if (req.getParameterMap().containsKey("errorMessage")) {
-            model.addAttribute("errorMessage",
-                    req.getParameter("errorMessage"));
+            model.addAttribute("errorMessage", req.getParameter("errorMessage"));
         }
         if (isOAuth2) {
             GoogleUser user = auth2GoogleUserService.findById(userId);
@@ -84,24 +83,24 @@ public class UserController {
     }
 
     @PostMapping("/saveProfile")
-    public String updateProfilePage(@RequestParam Map<String, String> userData,
-                                    @SessionAttribute Long userId,
-                                    @SessionAttribute Boolean isOAuth2,
-                                    RedirectAttributes redirectAttributes) {
+    public String updateProfilePage(
+            @RequestParam Map<String, String> userData,
+            @SessionAttribute Long userId,
+            @SessionAttribute Boolean isOAuth2,
+            RedirectAttributes redirectAttributes) {
         String firstName = userData.get("firstName");
         String lastName = userData.get("lastName");
         String email = userData.get("email");
         String password = userData.get("password");
         String newPassword = userData.get("newPassword");
+
         if (isOAuth2) {
             GoogleUser user = auth2GoogleUserService.findById(userId);
             updateOAuth2User(user, firstName, lastName);
         } else {
             AppUser user = appUserService.findById(userId);
-            if (password.length() > 0 && !passwordEncoder.matches(password,
-                    user.getPassword())) {
-                redirectAttributes.addAttribute("errorMessage", "You entered"
-                        + " incorrect password");
+            if (password.length() > 0 && !passwordEncoder.matches(password, user.getPassword())) {
+                redirectAttributes.addAttribute("errorMessage", "You entered" + " incorrect password");
                 return "redirect:/profile";
             }
             updateAppUser(user, firstName, lastName, email, newPassword);
@@ -109,16 +108,13 @@ public class UserController {
         return "redirect:/profile";
     }
 
-    private void updateOAuth2User(GoogleUser user, String firstName,
-                                  String lastName) {
+    private void updateOAuth2User(GoogleUser user, String firstName, String lastName) {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         auth2GoogleUserService.update(user);
     }
 
-    private void updateAppUser(AppUser user, String firstName,
-                               String lastName, String email,
-                               String newPassword) {
+    private void updateAppUser(AppUser user, String firstName, String lastName, String email, String newPassword) {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         if (email.length() != 0) {
