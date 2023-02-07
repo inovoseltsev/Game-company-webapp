@@ -38,18 +38,16 @@ public class ProfileController {
         } else if (authentication.getPrincipal().toString().contains(" sub=")) {
             return "redirect:/oAuth2Success";
         }
+
         AppUser user = ((UserDetailsImpl) authentication.getPrincipal()).getUser();
         String userFullName = user.getFirstName() + " " + user.getLastName();
+
         session.setAttribute("isOAuth2", false);
         session.setAttribute("userId", user.getId());
         session.setAttribute("userFullName", userFullName);
-        if (user.getRole().equals(Role.ADMIN)) {
-            session.setAttribute("isAdmin", true);
-            return "redirect:/users";
-        } else {
-            session.setAttribute("isAdmin", false);
-            return "redirect:/events";
-        }
+        session.setAttribute("isAdmin", user.getRole().equals(Role.ADMIN));
+
+        return "redirect:/events";
     }
 
     @GetMapping("/oAuth2Success")
