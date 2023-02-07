@@ -47,14 +47,12 @@ public class GoogleUserController {
     }
 
     @PutMapping("{id}")
-    public GoogleUser updateUserById(@RequestBody GoogleUser user,
-                                     @PathVariable String id) {
+    public GoogleUser updateUserById(@RequestBody GoogleUser user, @PathVariable String id) {
         return updateUser(finderById, id, user);
     }
 
     @PutMapping("/email/{email}")
-    public GoogleUser updateUserByEmail(@RequestBody GoogleUser user,
-                                        @PathVariable String email) {
+    public GoogleUser updateUserByEmail(@RequestBody GoogleUser user, @PathVariable String email) {
         return updateUser(finderByEmail, email, user);
     }
 
@@ -68,8 +66,7 @@ public class GoogleUserController {
                 .orElseThrow(UserNotFoundException::new);
     }
 
-    private GoogleUser updateUser(UserServiceFinder userServiceFinder,
-                                  String uniqParam, GoogleUser updatedUser) {
+    private GoogleUser updateUser(UserServiceFinder userServiceFinder, String uniqParam, GoogleUser updatedUser) {
         return Optional.ofNullable((GoogleUser) userServiceFinder.findUser(uniqParam))
                 .map(googleUser -> {
                     googleUser.setFirstName(updatedUser.getFirstName());

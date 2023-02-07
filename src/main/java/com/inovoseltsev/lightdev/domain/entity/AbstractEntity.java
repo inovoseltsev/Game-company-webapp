@@ -1,6 +1,7 @@
 package com.inovoseltsev.lightdev.domain.entity;
 
 import com.inovoseltsev.lightdev.domain.state.State;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -15,7 +16,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 @MappedSuperclass
 @Data
-public class AbstractEntity {
+public class AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

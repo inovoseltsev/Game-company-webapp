@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Admin page</title>
+    <title>Company name</title>
     <link href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -16,8 +16,10 @@
 <header>
     <div class="header-wrapper">
         <div class="logo-wrapper">
-            <img src="resources/img/logo.png" alt="">
-            <p th:text="${userFullName}">Ilya Novoseltsev</p>
+            <a href="goHome" target="_self">
+                <img src="resources/img/logo.png" alt="">
+            </a>
+            <p th:text="${userFullName}">Illia Novoseltsev</p>
         </div>
         <div class="nav-wrapper">
             <nav class="navbar">
@@ -76,11 +78,11 @@
             <th th:text="${user.getEmail()}"></th>
             <th th:text="${user.getState()}"></th>
             <th th:if="${user.getState().name()} == 'ACTIVE' "><a
-                    th:href="'ban?id=' + ${user.getUserId()}">
+                    th:href="'ban?id=' + ${user.getId()}">
                 <button class="set-button btn btn-link">Ban</button>
             </a></th>
             <th th:if="${user.getState().name() == 'BANNED'}"><a
-                    th:href="'activate?id=' + ${user.getUserId()}">
+                    th:href="'activate?id=' + ${user.getId()}">
                 <button class="set-button btn btn-link">Activate</button>
             </a></th>
         </tr>

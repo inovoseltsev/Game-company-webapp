@@ -4,6 +4,7 @@ import com.inovoseltsev.lightdev.domain.entity.AppUser;
 import com.inovoseltsev.lightdev.domain.role.Role;
 import com.inovoseltsev.lightdev.service.AppUserService;
 import java.util.Map;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,11 +22,8 @@ public class UserValidator {
         String password = userParameters.get("password");
         String email = userParameters.get("email");
         if (checkEmailAndLoginAreFree(login, email)) {
-            if ("".equals(email)) {
-                email = null;
-            }
-            return new AppUser(firstName, lastName, login, password, email,
-                    Role.USER   );
+            email = Objects.equals(email, "") ? null : email;
+            return new AppUser(firstName, lastName, login, password, email, Role.USER);
         } else {
             return null;
         }
