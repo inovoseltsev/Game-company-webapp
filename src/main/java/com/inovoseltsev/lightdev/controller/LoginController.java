@@ -33,8 +33,7 @@ public class LoginController {
     }
 
     @RequestMapping("/failed")
-    public String setFailPage(@RequestParam Map<String, String> userLoginData,
-                              Model model) {
+    public String setFailPage(@RequestParam Map<String, String> userLoginData, Model model) {
         AppUser user = userService.findByLogin(userLoginData.get("login"));
         boolean isGoogleLogin = userLoginData.containsKey("bannedGoogleAccount");
         boolean appUserNotExists = !isGoogleLogin && user == null;
